@@ -1,6 +1,5 @@
 -- Setup language servers.
 local lspconfig = require('lspconfig')
-local coq = require('coq')
 lspconfig.rust_analyzer.setup {}
 lspconfig.html.setup {}
 lspconfig.cssls.setup {}
