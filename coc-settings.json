@@ -1,3 +1,6 @@
 {
-  "snippets.ultisnips.pythonPrompt": false
+  "snippets.ultisnips.pythonPrompt": false,
+  "[html][css][markdown][json][gohtml]": {
+    "coc.preferences.formatOnSave": true
+  }
 }

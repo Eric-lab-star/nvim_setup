@@ -13,9 +13,7 @@
 :set clipboard=unnamed
 :set encoding=UTF-8
 autocmd Filetype c,cpp,java ClangFormatAutoEnable
-autocmd FileType lua nnoremap <buffer> <c-k> :call LuaFormat()<cr>
-autocmd BufWrite *.lua call LuaFormat()
-
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 "go.nvim keymap
 nnoremap <Leader>d :GoDoc<CR>
 " navigation key
@@ -28,22 +26,24 @@ cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
 cnoremap <C-l> <Right>
 
-call plug#begin()
+nnoremap <C-s> :NvimTreeToggle<CR>
 
+call plug#begin()
+" Plug 'preservim/nerdtree'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'romgrk/barbar.nvim'
 Plug 'lewis6991/gitsigns.nvim'
-" Plug 'wakatime/vim-wakatime'
+Plug 'wakatime/vim-wakatime'
 Plug 'ray-x/aurora'
 Plug 'https://github.com/kana/vim-operator-user'
 Plug 'https://github.com/rhysd/vim-clang-format'
 Plug 'neovim/nvim-lspconfig'
 Plug 'ray-x/go.nvim'
 Plug 'ray-x/guihua.lua' 
-" Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'windwp/nvim-autopairs'
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar
@@ -56,14 +56,12 @@ Plug 'ziontee113/icon-picker.nvim'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'https://github.com/folke/noice.nvim'
 Plug 'https://github.com/preservim/tagbar'
-" Plug 'https://github.com/nvimdev/dashboard-nvim'
+Plug 'https://github.com/nvimdev/dashboard-nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.2' }
 Plug 'akinsho/flutter-tools.nvim'
 call plug#end()
-
-
 
 set termguicolors            " 24 bit color
 let g:aurora_italic = 1     " italic
