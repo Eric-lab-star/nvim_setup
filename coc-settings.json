@@ -1,6 +1,13 @@
 {
   "snippets.ultisnips.pythonPrompt": false,
-  "[html][css][markdown][json][gohtml]": {
+  "[js][html][css][markdown][json][gohtml][java]": {
     "coc.preferences.formatOnSave": true
-  }
+  },
+  "sql.formatOptions": {
+    "keywordCase": "upper"
+  },
+  "java.format.enabled": true,
+  "java.format.settings.profile": "GoogleStyle",
+  "java.format.settings.url": "/Users/kyungsubkim/.config/coc/eclipse-formatter.xml",
+  "java.format.onType.enabled": true
 }

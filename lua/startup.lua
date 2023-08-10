@@ -1,6 +1,9 @@
 require("dashboard").setup({
     theme = 'hyper',
     config = {
+		week_header = {
+			enable = treu,
+		},
         shortcut = {
             {desc = ' Config', action = 'new ~/.config/nvim', key = 'c'},
             {
@@ -12,7 +15,9 @@ require("dashboard").setup({
                 icon = ' ',
                 icon_hl = '@variable',
                 desc = 'Files',
+				action = 'Telescope find_files',
                 group = 'Label',
+				key = 'f',
             }, {
                 desc = ' Apps',
                 group = 'DiagnosticHint',

@@ -12,11 +12,15 @@
 :set mouse=a
 :set clipboard=unnamed
 :set encoding=UTF-8
-autocmd Filetype c,cpp,java ClangFormatAutoEnable
+
+autocmd Filetype c,cpp ClangFormatAutoEnable
+autocmd FileType sql setlocal commentstring=--%s
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
-"go.nvim keymap
-nnoremap <Leader>d :GoDoc<CR>
+
+
+
 " navigation key
+
 inoremap <C-h> <Left>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
@@ -27,9 +31,9 @@ cnoremap <C-k> <Up>
 cnoremap <C-l> <Right>
 
 nnoremap <C-s> :NvimTreeToggle<CR>
-
 call plug#begin()
-" Plug 'preservim/nerdtree'
+Plug 'chentoast/marks.nvim'
+Plug 'https://github.com/cbochs/grapple.nvim'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'romgrk/barbar.nvim'
 Plug 'lewis6991/gitsigns.nvim'
@@ -46,7 +50,6 @@ Plug 'windwp/nvim-autopairs'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
-Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 Plug 'https://github.com/lifepillar/pgsql.vim' " PSQL Pluging needs :SQLSetType pgsql.vim
 Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
@@ -61,6 +64,11 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.2' }
 Plug 'akinsho/flutter-tools.nvim'
+Plug 'rcarriga/nvim-notify'
+" latest updates
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'https://github.com/tpope/vim-dadbod'
+Plug 'https://github.com/kristijanhusak/vim-dadbod-ui'
 call plug#end()
 
 set termguicolors            " 24 bit color
@@ -76,23 +84,7 @@ colorscheme aurora
 
 "barbar
 nnoremap <silent>    <C-c> <Cmd>BufferClose<CR>
-
-" term key map
-
-" air-line
-let g:airline_powerline_fonts = 1
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-" airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
+nnoremap <silent>    <C-,> <Cmd>BufferPrevious<CR>
+nnoremap <silent>    <C-.> <Cmd>BufferNext<CR>
 
 :lua require('init')
