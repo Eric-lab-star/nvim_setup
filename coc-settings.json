@@ -1,11 +1,31 @@
 {
+  "html.format.enable": false,
+  "languageserver": {
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "trace.server": "verbose",
+      "filetypes": ["go"]
+    },
+    "godot": {
+      "host": "127.0.0.1",
+      "filetypes": ["gd", "gdscript", "gdscript3"],
+      "port": 6005
+    },
+    "sourcekit-lsp": {
+      "filetypes": ["swift"],
+      "command": "sourcekit-lsp"
+    }
+  },
+  "coc.preferences.extensionUpdateCheck": "daily",
   "snippets.ultisnips.pythonPrompt": false,
-  "[js][html][css][markdown][json][gohtml][java]": {
+  "[scss][javascript][typescript][html][css][markdown][json][gohtml][java]": {
     "coc.preferences.formatOnSave": true
   },
   "sql.formatOptions": {
     "keywordCase": "upper"
   },
+  "sql.database": "postgresql",
   "java.format.enabled": true,
   "java.format.settings.profile": "GoogleStyle",
   "java.format.settings.url": "/Users/kyungsubkim/.config/coc/eclipse-formatter.xml",
