@@ -2,7 +2,7 @@ require("dashboard").setup({
     theme = 'hyper',
     config = {
 		week_header = {
-			enable = treu,
+			enable = true,
 		},
         shortcut = {
             {desc = ' Config', action = 'new ~/.config/nvim', key = 'c'},
