@@ -1,6 +1,7 @@
 
-
-
+:set autochdir
+set termguicolors            " 24 bit color
+:set completeopt-=preview " For No Previews
 :set nowrap
 :set nocompatible
 :set conceallevel=2
@@ -18,6 +19,7 @@
 :set clipboard=unnamed
 :set encoding=UTF-8
 
+"Commands 
 filetype plugin on
 syntax on
 augroup filetype
@@ -27,15 +29,17 @@ autocmd Filetype c,cpp ClangFormatAutoEnable
 autocmd FileType sql setlocal commentstring=--%s
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 command! -nargs=0 SqlFormat :CocCommand sql.Format
-command! -nargs=0 MyPlugin :lua require("tools").setup()
+command! -nargs=1 WikiLink :lua require("tools").setup(<f-args>)
+autocmd ColorScheme * highlight CocHighlightText     ctermfg=Magenta guifg=Magenta
 
-" tnoremap <Esc> <C-\><C-n>
+"Plugins 
 call plug#begin()
 Plug 'ray-x/go.nvim'
 Plug 'chentoast/marks.nvim'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'dart-lang/dart-vim-plugin'
-Plug 'romgrk/barbar.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
+" Plug 'romgrk/barbar.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'wakatime/vim-wakatime'
 Plug 'ray-x/aurora'
@@ -43,7 +47,7 @@ Plug 'https://github.com/kana/vim-operator-user'
 Plug 'https://github.com/rhysd/vim-clang-format'
 Plug 'neovim/nvim-lspconfig'
 Plug 'ray-x/guihua.lua' 
-Plug 'nvim-tree/nvim-tree.lua'
+" Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'windwp/nvim-autopairs'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -57,10 +61,9 @@ Plug 'ziontee113/icon-picker.nvim'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'folke/noice.nvim'
 Plug 'https://github.com/preservim/tagbar'
-Plug 'https://github.com/nvimdev/dashboard-nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.2' }
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
 Plug 'akinsho/flutter-tools.nvim'
 Plug 'rcarriga/nvim-notify'
 Plug 'nvim-lualine/lualine.nvim'
@@ -74,32 +77,18 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular'
 Plug 'm00qek/baleia.nvim', { 'tag': 'v1.3.0' }
 Plug 'https://github.com/folke/tokyonight.nvim'
-Plug 'dense-analysis/ale'
 Plug 'tokorom/vim-swift-format'
-" latest updates
+Plug 'https://github.com/ggandor/leap.nvim'
+Plug 'https://github.com/tpope/vim-repeat'
+" Plug 'dense-analysis/ale'
 call plug#end()
 
-let g:ale_linters = {
-\   'swift': ['swift-format'],
-\}
-
-let g:vim_swift_format_use_ale = 1
-" colorscheme aurora
-colorscheme tokyonight-night
-set termguicolors            " 24 bit color
-
-:set completeopt-=preview " For No Previews
 "nvim-toggle
-nnoremap <c-\> :NvimTreeToggle<CR>
-
-"barbar
-nnoremap <silent> <C-c> <Cmd>BufferClose<CR>
-" nnoremap <silent> <leader>p <cmd>BufferPrevious<CR>
-nnoremap <silent> <leader>n <Cmd>BufferNext<CR>
 
 "for DBUI
 let g:dbs =[
 \ {'name': 'dev', 'url': 'postgres://kyungsubkim@localhost:5432/kyungsubkim'},
 \]
 
+vmap <leader>f <Plug>(coc-format-selected)
 :lua require('init')

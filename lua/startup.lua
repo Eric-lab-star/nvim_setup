@@ -23,10 +23,8 @@ require("dashboard").setup({
                 group = 'DiagnosticHint',
                 action = 'Telescope app',
                 key = 'a'
-            }, {
-                desc = ' dotfiles',
-                group = 'Number',
-            }
+            },
+			{ desc = 'Notes', action ='new ~/notes', key = 'n' }
         }
     }
 })
