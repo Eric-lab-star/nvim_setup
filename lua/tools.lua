@@ -1,4 +1,3 @@
-vim.keymap.set('n', 'bn', '<cmd>:bn<cr>')
 local api = vim.api
 local M = {}
 function M.setup(arg)

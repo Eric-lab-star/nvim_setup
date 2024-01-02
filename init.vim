@@ -1,4 +1,4 @@
-
+let g:sql_typ_default = 'pgsql'
 :set autochdir
 set termguicolors            " 24 bit color
 :set completeopt-=preview " For No Previews
@@ -42,7 +42,6 @@ Plug 'nvim-telescope/telescope-file-browser.nvim'
 " Plug 'romgrk/barbar.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'wakatime/vim-wakatime'
-Plug 'ray-x/aurora'
 Plug 'https://github.com/kana/vim-operator-user'
 Plug 'https://github.com/rhysd/vim-clang-format'
 Plug 'neovim/nvim-lspconfig'
@@ -74,21 +73,32 @@ Plug 'codota/tabnine-nvim', { 'do': './dl_binaries.sh' }
 Plug 'https://github.com/kylechui/nvim-surround'
 Plug 'vimwiki/vimwiki'
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'godlygeek/tabular'
+Plug 'godlygeek/tabular' "for alignment :Tabularize
 Plug 'm00qek/baleia.nvim', { 'tag': 'v1.3.0' }
 Plug 'https://github.com/folke/tokyonight.nvim'
 Plug 'tokorom/vim-swift-format'
 Plug 'https://github.com/ggandor/leap.nvim'
 Plug 'https://github.com/tpope/vim-repeat'
+Plug 'mhartington/formatter.nvim'
+Plug 'williamboman/mason.nvim'
+Plug 'Pocco81/HighStr.nvim'
 " Plug 'dense-analysis/ale'
 call plug#end()
 
-"nvim-toggle
 
 "for DBUI
 let g:dbs =[
 \ {'name': 'dev', 'url': 'postgres://kyungsubkim@localhost:5432/kyungsubkim'},
 \]
+" cutom keymap
+" align with =
+nmap <Leader>a= :Tabularize /=<CR> 
+vmap <Leader>a= :Tabularize /=<CR>
+"align with :
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
+"align with //
+vmap <Leader>a/ :Tabularize /\/\/<CR>
+nmap <Leader>a/ :Tabularize /\/\/<CR>
 
-vmap <leader>f <Plug>(coc-format-selected)
 :lua require('init')

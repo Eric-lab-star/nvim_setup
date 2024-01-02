@@ -19,5 +19,7 @@ require("markConfig")
 require("lualineConfig")
 require("nvim-surround").setup()
 require("tokyonightConfig")
-----test
 require("tools")
+require('mason').setup()
+require('formatterConfig')
+require('highlighterConfig')
