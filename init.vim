@@ -2,12 +2,12 @@ let g:sql_typ_default = 'pgsql'
 :set autochdir
 set termguicolors            " 24 bit color
 :set completeopt-=preview " For No Previews
-:set nowrap
 :set nocompatible
 :set conceallevel=2
 :set number
 :set nobackup
-:set nowb 
+:set nowrap
+:set nowb
 :set noswapfile
 :set relativenumber
 :set autoindent
@@ -18,21 +18,21 @@ set termguicolors            " 24 bit color
 :set mouse=a
 :set clipboard=unnamed
 :set encoding=UTF-8
-
-"Commands 
+let g:ale_echo_cursor=0
+let g:ale_hover_cursor=0
+"Commands
 filetype plugin on
 syntax on
 augroup filetype
   au! BufRead,BufNewFile *.swift set ft=swift
 augroup END
-autocmd Filetype c,cpp ClangFormatAutoEnable
 autocmd FileType sql setlocal commentstring=--%s
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 command! -nargs=0 SqlFormat :CocCommand sql.Format
 command! -nargs=1 WikiLink :lua require("tools").setup(<f-args>)
 autocmd ColorScheme * highlight CocHighlightText     ctermfg=Magenta guifg=Magenta
 
-"Plugins 
+"Plugins
 call plug#begin()
 Plug 'ray-x/go.nvim'
 Plug 'chentoast/marks.nvim'
@@ -43,9 +43,8 @@ Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'wakatime/vim-wakatime'
 Plug 'https://github.com/kana/vim-operator-user'
-Plug 'https://github.com/rhysd/vim-clang-format'
 Plug 'neovim/nvim-lspconfig'
-Plug 'ray-x/guihua.lua' 
+Plug 'ray-x/guihua.lua'
 " Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'windwp/nvim-autopairs'
@@ -82,7 +81,7 @@ Plug 'https://github.com/tpope/vim-repeat'
 Plug 'mhartington/formatter.nvim'
 Plug 'williamboman/mason.nvim'
 Plug 'Pocco81/HighStr.nvim'
-" Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 call plug#end()
 
 
@@ -92,7 +91,7 @@ let g:dbs =[
 \]
 " cutom keymap
 " align with =
-nmap <Leader>a= :Tabularize /=<CR> 
+nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 "align with :
 nmap <Leader>a: :Tabularize /:\zs<CR>

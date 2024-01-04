@@ -19,15 +19,11 @@
   },
   "coc.preferences.extensionUpdateCheck": "daily",
   "snippets.ultisnips.pythonPrompt": false,
-  "[scss][javascript][typescript][html][css][markdown][json][gohtml][java]": {
+  "[markdown][typescript][json]": {
     "coc.preferences.formatOnSave": true
   },
   "sql.formatOptions": {
     "keywordCase": "upper"
   },
-  "sql.database": "postgresql",
-  "java.format.enabled": true,
-  "java.format.settings.profile": "GoogleStyle",
-  "java.format.settings.url": "/Users/kyungsubkim/.config/coc/eclipse-formatter.xml",
-  "java.format.onType.enabled": true
+  "sql.database": "postgresql"
 }
