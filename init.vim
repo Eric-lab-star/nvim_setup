@@ -1,5 +1,5 @@
 let g:sql_typ_default = 'pgsql'
-
+:set ignorecase
 :set termguicolors            " 24 bit color
 :set incsearch
 :set completeopt-=preview " For No Previews
@@ -53,7 +53,6 @@ Plug 'https://github.com/kana/vim-operator-user'
 Plug 'neovim/nvim-lspconfig'
 Plug 'ray-x/guihua.lua'
 Plug 'nvim-tree/nvim-web-devicons'
-Plug 'windwp/nvim-autopairs'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
@@ -89,7 +88,22 @@ Plug 'ThePrimeagen/harpoon',{'branch': 'harpoon2'}
 Plug 'preservim/vim-markdown'
 Plug 'liuchengxu/vista.vim' "viewer and finder for lsp symbols and tags
 call plug#end()
+""""""""" coc snippets
 
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+" Use <leader>x for convert visual selected code to snippet
+xmap <leader>x  <Plug>(coc-convert-snippet)
 
 "for DBUI
 let g:dbs =[
