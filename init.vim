@@ -1,12 +1,12 @@
 let g:sql_typ_default = 'pgsql'
-:set autochdir
-set termguicolors            " 24 bit color
+
+:set termguicolors            " 24 bit color
+:set incsearch
 :set completeopt-=preview " For No Previews
 :set nocompatible
 :set conceallevel=2
 :set number
 :set nobackup
-:set nowrap
 :set nowb
 :set noswapfile
 :set relativenumber
@@ -18,20 +18,29 @@ set termguicolors            " 24 bit color
 :set mouse=a
 :set clipboard=unnamed
 :set encoding=UTF-8
+
+let g:netrw_browsex_viewer = "xdg-open"
+let g:vim_markdown_new_list_item_indent = 0
+let g:vim_markdown_auto_insert_bullets = 0
+let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_no_default_key_mappings=1
+let g:vim_markdown_toc_autofit=1
+
 let g:ale_echo_cursor=0
 let g:ale_hover_cursor=0
-"Commands
+let g:ale_set_balloons=0
+
 filetype plugin on
 syntax on
 augroup filetype
   au! BufRead,BufNewFile *.swift set ft=swift
 augroup END
 autocmd FileType sql setlocal commentstring=--%s
+"Commands
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 command! -nargs=0 SqlFormat :CocCommand sql.Format
-command! -nargs=1 WikiLink :lua require("tools").setup(<f-args>)
+command! -nargs=1 WL :lua require("tools").setup(<f-args>)
 autocmd ColorScheme * highlight CocHighlightText     ctermfg=Magenta guifg=Magenta
-
 "Plugins
 call plug#begin()
 Plug 'ray-x/go.nvim'
@@ -39,13 +48,10 @@ Plug 'chentoast/marks.nvim'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
-" Plug 'romgrk/barbar.nvim'
 Plug 'lewis6991/gitsigns.nvim'
-Plug 'wakatime/vim-wakatime'
 Plug 'https://github.com/kana/vim-operator-user'
 Plug 'neovim/nvim-lspconfig'
 Plug 'ray-x/guihua.lua'
-" Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'windwp/nvim-autopairs'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -58,7 +64,6 @@ Plug 'stevearc/dressing.nvim'
 Plug 'ziontee113/icon-picker.nvim'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'folke/noice.nvim'
-Plug 'https://github.com/preservim/tagbar'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
@@ -70,18 +75,19 @@ Plug 'https://github.com/kristijanhusak/vim-dadbod-ui'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'codota/tabnine-nvim', { 'do': './dl_binaries.sh' }
 Plug 'https://github.com/kylechui/nvim-surround'
-Plug 'vimwiki/vimwiki'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'godlygeek/tabular' "for alignment :Tabularize
 Plug 'm00qek/baleia.nvim', { 'tag': 'v1.3.0' }
 Plug 'https://github.com/folke/tokyonight.nvim'
 Plug 'tokorom/vim-swift-format'
 Plug 'https://github.com/ggandor/leap.nvim'
-Plug 'https://github.com/tpope/vim-repeat'
-Plug 'mhartington/formatter.nvim'
-Plug 'williamboman/mason.nvim'
-Plug 'Pocco81/HighStr.nvim'
+Plug 'https://github.com/tpope/vim-repeat' " repeat plugin command
+Plug 'mhartington/formatter.nvim' "integrated formatter for many languages
+Plug 'williamboman/mason.nvim'"lsp downloader
 Plug 'dense-analysis/ale'
+Plug 'ThePrimeagen/harpoon',{'branch': 'harpoon2'}
+Plug 'preservim/vim-markdown'
+Plug 'liuchengxu/vista.vim' "viewer and finder for lsp symbols and tags
 call plug#end()
 
 
@@ -89,15 +95,5 @@ call plug#end()
 let g:dbs =[
 \ {'name': 'dev', 'url': 'postgres://kyungsubkim@localhost:5432/kyungsubkim'},
 \]
-" cutom keymap
-" align with =
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-"align with :
-nmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>a: :Tabularize /:\zs<CR>
-"align with //
-vmap <Leader>a/ :Tabularize /\/\/<CR>
-nmap <Leader>a/ :Tabularize /\/\/<CR>
 
 :lua require('init')

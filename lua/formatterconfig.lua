@@ -7,6 +7,11 @@ autocmd("BufWritePost", {
 	command = ":FormatWrite",
 })
 
+-- autocmd("BufWritePost", {
+-- 	group = "__formatter__",
+-- 	command = ":Prettier",
+-- })
+
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 require("formatter").setup({
 	-- Enable or disable logging
