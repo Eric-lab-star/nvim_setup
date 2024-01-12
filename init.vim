@@ -11,10 +11,10 @@ let g:sql_typ_default = 'pgsql'
 :set noswapfile
 :set relativenumber
 :set autoindent
-:set tabstop=4
-:set shiftwidth=4
+:set tabstop=2
+:set shiftwidth=2
 :set smarttab
-:set softtabstop=4
+:set softtabstop=2
 :set mouse=a
 :set clipboard=unnamed
 :set encoding=UTF-8

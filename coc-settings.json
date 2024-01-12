@@ -1,5 +1,6 @@
 {
   "suggest.noselect": true,
+  "diagnostic.displayByAle": true,
   "html.format.enable": false,
   "languageserver": {
     "go": {
