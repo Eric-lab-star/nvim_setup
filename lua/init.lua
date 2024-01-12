@@ -14,7 +14,6 @@ require("notify").setup({
 	timeout = 1000,
 	stages = "static",
 })
-require("markConfig")
 require("lualineConfig")
 require("nvim-surround").setup()
 require("tokyonightConfig")

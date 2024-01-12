@@ -1,4 +1,8 @@
 let g:sql_typ_default = 'pgsql'
+let g:netrw_banner = 1
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_winsize = 25
 :set ignorecase
 :set termguicolors            " 24 bit color
 :set incsearch
@@ -44,7 +48,6 @@ autocmd ColorScheme * highlight CocHighlightText     ctermfg=Magenta guifg=Magen
 "Plugins
 call plug#begin()
 Plug 'ray-x/go.nvim'
-Plug 'chentoast/marks.nvim'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
@@ -65,7 +68,7 @@ Plug 'MunifTanjim/nui.nvim'
 Plug 'folke/noice.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
+Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 Plug 'akinsho/flutter-tools.nvim'
 Plug 'rcarriga/nvim-notify'
 Plug 'nvim-lualine/lualine.nvim'
