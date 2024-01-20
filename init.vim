@@ -2,7 +2,7 @@ let g:sql_typ_default = 'pgsql'
 let g:netrw_banner = 1
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
-let g:netrw_winsize = 25
+let g:netrw_winsize = 30
 :set ignorecase
 :set termguicolors            " 24 bit color
 :set incsearch
@@ -30,9 +30,6 @@ let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_no_default_key_mappings=1
 let g:vim_markdown_toc_autofit=1
 
-let g:ale_echo_cursor=0
-let g:ale_hover_cursor=0
-let g:ale_set_balloons=0
 
 filetype plugin on
 syntax on
@@ -86,27 +83,39 @@ Plug 'https://github.com/ggandor/leap.nvim'
 Plug 'https://github.com/tpope/vim-repeat' " repeat plugin command
 Plug 'mhartington/formatter.nvim' "integrated formatter for many languages
 Plug 'williamboman/mason.nvim'"lsp downloader
-Plug 'dense-analysis/ale'
 Plug 'ThePrimeagen/harpoon',{'branch': 'harpoon2'}
 Plug 'preservim/vim-markdown'
-Plug 'liuchengxu/vista.vim' "viewer and finder for lsp symbols and tags
 call plug#end()
 """"""""" coc snippets
 
 " Use <C-j> for select text for visual placeholder of snippet.
 vmap <C-j> <Plug>(coc-snippets-select)
 
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
-
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 
-" Use <leader>x for convert visual selected code to snippet
-xmap <leader>x  <Plug>(coc-convert-snippet)
+"outliner using coc.vim
+nnoremap <silent><nowait> <space>o  :call ToggleOutline()<CR>
+function! ToggleOutline() abort
+	let winid = coc#window#find('cocViewId', 'OUTLINE')
+	if winid == -1
+		call CocActionAsync('showOutline', 1)
+	else
+		call coc#window#close(winid)
+	endif
+endfunction
+
+" close outine automatically when no file is open
+autocmd BufEnter * call CheckOutline()
+function! CheckOutline() abort
+	if &filetype ==# 'coctree' && winnr('$') == 1
+		if tabpagenr('$') != 1
+			close
+		else
+			bdelete
+		endif
+	endif
+endfunction
 
 "for DBUI
 let g:dbs =[
