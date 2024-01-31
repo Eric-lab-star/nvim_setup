@@ -1,7 +1,7 @@
 let g:sql_typ_default = 'pgsql'
 let g:netrw_banner = 1
 let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
+let g:netrw_browse_split = 0
 let g:netrw_winsize = 30
 :set ignorecase
 :set termguicolors            " 24 bit color
