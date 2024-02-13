@@ -3,6 +3,7 @@ let g:netrw_banner = 1
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 0
 let g:netrw_winsize = 30
+
 :set ignorecase
 :set termguicolors            " 24 bit color
 :set incsearch
@@ -44,10 +45,10 @@ command! -nargs=1 WL :lua require("tools").setup(<f-args>)
 autocmd ColorScheme * highlight CocHighlightText     ctermfg=Magenta guifg=Magenta
 "Plugins
 call plug#begin()
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'ray-x/go.nvim'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'dart-lang/dart-vim-plugin'
-Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'https://github.com/kana/vim-operator-user'
 Plug 'neovim/nvim-lspconfig'
@@ -85,6 +86,7 @@ Plug 'mhartington/formatter.nvim' "integrated formatter for many languages
 Plug 'williamboman/mason.nvim'"lsp downloader
 Plug 'ThePrimeagen/harpoon',{'branch': 'harpoon2'}
 Plug 'preservim/vim-markdown'
+Plug 'nvim-tree/nvim-tree.lua'
 call plug#end()
 """"""""" coc snippets
 

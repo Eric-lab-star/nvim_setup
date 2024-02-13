@@ -7,7 +7,11 @@ require("go").setup()
 require("icon-picker").setup({ disable_legacy_commands = true })
 require("flutter-tools").setup({})
 require("tabnineConfig")
-require("noice").setup()
+require("noice").setup({
+	messages = {
+		enabled = false,
+	},
+})
 require("notify").setup({
 	background_colour = "#000000",
 	max_width = 100,
@@ -30,3 +34,5 @@ require("leap").add_repeat_mappings(";", ",", {
 	-- By default, all modes are included.
 	modes = { "n", "x", "o" },
 })
+
+require("nvimtreeConfig")
