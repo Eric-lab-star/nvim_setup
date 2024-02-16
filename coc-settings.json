@@ -26,8 +26,13 @@
   "[typescript][json]": {
     "coc.preferences.formatOnSave": true
   },
+  "snippets.extends": {
+    "dart": ["dart", "flutter"]
+  },
   "sql.formatOptions": {
     "keywordCase": "upper"
   },
-  "sql.database": "postgresql"
+  "sql.database": "postgresql",
+  "java.import.gradle.java.home": "/usr/local/Cellar/openjdk@17/17.0.9/libexec/openjdk.jdk/Contents/Home",
+  "java.saveActions.organizeImports": true
 }

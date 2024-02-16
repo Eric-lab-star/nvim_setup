@@ -24,12 +24,16 @@ let g:netrw_winsize = 30
 :set clipboard=unnamed
 :set encoding=UTF-8
 
+let g:vim_markdown_no_default_key_mappings=1
 let g:netrw_browsex_viewer = "xdg-open"
-let g:vim_markdown_new_list_item_indent = 0
+let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_folding_disabled=1
-let g:vim_markdown_no_default_key_mappings=1
-let g:vim_markdown_toc_autofit=1
+let g:vim_markdown_strikethrough = 1
+let g:vim_markdown_autowrite = 1
+let g:vim_markdown_no_extensions_in_markdown = 1
+
+nmap ge <Plug>Markdown_EditUrlUnderCursor
 
 
 filetype plugin on
@@ -38,11 +42,13 @@ augroup filetype
   au! BufRead,BufNewFile *.swift set ft=swift
 augroup END
 autocmd FileType sql setlocal commentstring=--%s
+
 "Commands
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 command! -nargs=0 SqlFormat :CocCommand sql.Format
-command! -nargs=1 WL :lua require("tools").setup(<f-args>)
 autocmd ColorScheme * highlight CocHighlightText     ctermfg=Magenta guifg=Magenta
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Plugins
 call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -88,36 +94,12 @@ Plug 'ThePrimeagen/harpoon',{'branch': 'harpoon2'}
 Plug 'preservim/vim-markdown'
 Plug 'nvim-tree/nvim-tree.lua'
 call plug#end()
-""""""""" coc snippets
+"""""""""""""""""""" """""""""""""""""""" """"""""""""""""""""
 
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
 
-" Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
 
-"outliner using coc.vim
-nnoremap <silent><nowait> <space>o  :call ToggleOutline()<CR>
-function! ToggleOutline() abort
-	let winid = coc#window#find('cocViewId', 'OUTLINE')
-	if winid == -1
-		call CocActionAsync('showOutline', 1)
-	else
-		call coc#window#close(winid)
-	endif
-endfunction
 
-" close outine automatically when no file is open
-autocmd BufEnter * call CheckOutline()
-function! CheckOutline() abort
-	if &filetype ==# 'coctree' && winnr('$') == 1
-		if tabpagenr('$') != 1
-			close
-		else
-			bdelete
-		endif
-	endif
-endfunction
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "for DBUI
 let g:dbs =[
