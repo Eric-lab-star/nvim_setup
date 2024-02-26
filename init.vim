@@ -92,9 +92,20 @@ Plug 'mhartington/formatter.nvim' "integrated formatter for many languages
 Plug 'williamboman/mason.nvim'"lsp downloader
 Plug 'ThePrimeagen/harpoon',{'branch': 'harpoon2'}
 Plug 'preservim/vim-markdown'
-Plug 'nvim-tree/nvim-tree.lua'
+Plug 'https://github.com/mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'theHamsta/nvim-dap-virtual-text'
+Plug 'https://github.com/nvim-telescope/telescope-dap.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+Plug 'edolphin-ydf/goimpl.nvim',
+Plug 'folke/neodev.nvim'
+Plug 'stevearc/oil.nvim'
+Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
+Plug 'ryanmsnyder/toggleterm-manager.nvim',
+Plug 'kkharji/sqlite.lua'
+Plug 'AckslD/nvim-neoclip.lua',
 call plug#end()
-"""""""""""""""""""" """""""""""""""""""" """"""""""""""""""""
+
 
 
 

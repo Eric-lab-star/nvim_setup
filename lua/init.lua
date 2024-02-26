@@ -27,12 +27,19 @@ require("formatterConfig")
 require("harpoonconfig")
 
 require("leap").add_repeat_mappings(";", ",", {
-	-- False by default. If set to true, the keys will work like the
-	-- native semicolon/comma, i.e., forward/backward is understood in
-	-- relation to the last motion.
 	relative_directions = true,
-	-- By default, all modes are included.
 	modes = { "n", "x", "o" },
 })
 
-require("nvimtreeConfig")
+require("dapui").setup()
+require("oilConfig")
+require("toggleterm").setup()
+require("neoclipConfig")
+
+require("toggleterm-manager").setup({
+	titles = {
+		prompt = "Pick Term",
+		results = "Terminals",
+	},
+})
+vim.keymap.set("n", "<C-t>", "<cmd>Telescope toggleterm_manager<cr>", {})

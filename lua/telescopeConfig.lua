@@ -1,6 +1,7 @@
 local builtin = require("telescope.builtin")
 local telescope = require("telescope")
 local telescopeConfig = require("telescope.config")
+
 -- Clone the default Telescope configuration
 local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
 
@@ -9,6 +10,8 @@ table.insert(vimgrep_arguments, "--hidden")
 -- I don't want to search in the `.git` directory.
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/.git/*")
+table.insert(vimgrep_arguments, "!**/node_modules/*")
+table.insert(vimgrep_arguments, "**/build/*")
 
 telescope.setup({
 	defaults = {
@@ -18,12 +21,20 @@ telescope.setup({
 	pickers = {
 		find_files = {
 			-- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
-			find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+			find_command = {
+				"rg",
+				"--files",
+				"--hidden",
+				"--glob",
+				"!**/node_modules/*",
+				"--glob",
+				"!**/.git/*",
+			},
 		},
 	},
 })
+
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 vim.keymap.set("n", "<leader>ft", builtin.treesitter, {})
@@ -44,3 +55,19 @@ require("telescope").setup({
 
 -- notify
 require("telescope").load_extension("notify")
+
+-- dap
+require("telescope").load_extension("dap")
+
+-- fzf
+require("telescope").load_extension("fzf")
+
+-- goimpl
+require("telescope").load_extension("goimpl")
+
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>im",
+	[[<cmd>lua require'telescope'.extensions.goimpl.goimpl{}<CR>]],
+	{ noremap = true, silent = true }
+)
