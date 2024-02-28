@@ -11,7 +11,8 @@ table.insert(vimgrep_arguments, "--hidden")
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/.git/*")
 table.insert(vimgrep_arguments, "!**/node_modules/*")
-table.insert(vimgrep_arguments, "**/build/*")
+table.insert(vimgrep_arguments, "!**/build/*")
+table.insert(vimgrep_arguments, "!Flutter/**/ios/*")
 
 telescope.setup({
 	defaults = {
@@ -29,6 +30,22 @@ telescope.setup({
 				"!**/node_modules/*",
 				"--glob",
 				"!**/.git/*",
+				"--glob",
+				"!**/ios/*",
+				"--glob",
+				"!**/build/*",
+				"--glob",
+				"!**/android/*",
+				"--glob",
+				"!**/macos/*",
+				"--glob",
+				"!**/web/*",
+				"--glob",
+				"!**/windows/*",
+				"--glob",
+				"!**/linux/*",
+				"--glob",
+				"!**/.dart_tool/*",
 			},
 		},
 	},
@@ -71,3 +88,6 @@ vim.api.nvim_set_keymap(
 	[[<cmd>lua require'telescope'.extensions.goimpl.goimpl{}<CR>]],
 	{ noremap = true, silent = true }
 )
+
+-- bookmark
+require("telescope").load_extension("bookmarks")

@@ -25,7 +25,6 @@ let g:netrw_winsize = 30
 :set encoding=UTF-8
 
 let g:vim_markdown_no_default_key_mappings=1
-let g:netrw_browsex_viewer = "xdg-open"
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_folding_disabled=1
@@ -34,7 +33,6 @@ let g:vim_markdown_autowrite = 1
 let g:vim_markdown_no_extensions_in_markdown = 1
 
 nmap ge <Plug>Markdown_EditUrlUnderCursor
-
 
 filetype plugin on
 syntax on
@@ -91,7 +89,7 @@ Plug 'https://github.com/tpope/vim-repeat' " repeat plugin command
 Plug 'mhartington/formatter.nvim' "integrated formatter for many languages
 Plug 'williamboman/mason.nvim'"lsp downloader
 Plug 'ThePrimeagen/harpoon',{'branch': 'harpoon2'}
-Plug 'preservim/vim-markdown'
+Plug 'preservim/vim-markdown', {'branch': 'master'}
 Plug 'https://github.com/mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'theHamsta/nvim-dap-virtual-text'
@@ -104,6 +102,7 @@ Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 Plug 'ryanmsnyder/toggleterm-manager.nvim',
 Plug 'kkharji/sqlite.lua'
 Plug 'AckslD/nvim-neoclip.lua',
+Plug 'dhruvmanila/browser-bookmarks.nvim', { 'tag': '*' }
 call plug#end()
 
 
