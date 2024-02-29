@@ -91,3 +91,4 @@ vim.api.nvim_set_keymap(
 
 -- bookmark
 require("telescope").load_extension("bookmarks")
+-- macro
