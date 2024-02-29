@@ -103,6 +103,7 @@ Plug 'ryanmsnyder/toggleterm-manager.nvim',
 Plug 'kkharji/sqlite.lua'
 Plug 'AckslD/nvim-neoclip.lua',
 Plug 'dhruvmanila/browser-bookmarks.nvim', { 'tag': '*' }
+Plug 'fannheyward/telescope-coc.nvim'
 call plug#end()
 
 

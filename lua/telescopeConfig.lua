@@ -14,12 +14,26 @@ table.insert(vimgrep_arguments, "!**/node_modules/*")
 table.insert(vimgrep_arguments, "!**/build/*")
 table.insert(vimgrep_arguments, "!Flutter/**/ios/*")
 
+local actions = require("telescope.actions")
 telescope.setup({
+	extensions = {
+		coc = {
+			theme = "ivy",
+			prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
+		},
+	},
 	defaults = {
 		-- `hidden = true` is not supported in text grep commands.
 		vimgrep_arguments = vimgrep_arguments,
 	},
 	pickers = {
+		buffers = {
+			mappings = {
+				i = {
+					["<c-d>"] = actions.delete_buffer + actions.move_to_top,
+				},
+			},
+		},
 		find_files = {
 			-- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
 			find_command = {
@@ -48,27 +62,13 @@ telescope.setup({
 				"!**/.dart_tool/*",
 			},
 		},
+		oldfiles = {},
 	},
 })
 
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
-vim.keymap.set("n", "<leader>ft", builtin.treesitter, {})
-
--- delete buffer
-local actions = require("telescope.actions")
-require("telescope").setup({
-	pickers = {
-		buffers = {
-			mappings = {
-				i = {
-					["<c-d>"] = actions.delete_buffer + actions.move_to_top,
-				},
-			},
-		},
-	},
-})
+vim.keymap.set("n", "<leader>fo", builtin.oldfiles, {})
 
 -- notify
 require("telescope").load_extension("notify")
@@ -91,4 +91,6 @@ vim.api.nvim_set_keymap(
 
 -- bookmark
 require("telescope").load_extension("bookmarks")
--- macro
+
+-- coc
+require("telescope").load_extension("coc")
