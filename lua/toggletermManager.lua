@@ -4,4 +4,4 @@ require("toggleterm-manager").setup({
 		results = "Terminals",
 	},
 })
-vim.keymap.set("n", "<C-t>", "<cmd>Telescope toggleterm_manager<cr>", {})
+vim.keymap.set("n", "<leader>tt", "<cmd>Telescope toggleterm_manager<cr>", {})

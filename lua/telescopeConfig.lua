@@ -1,17 +1,19 @@
 local builtin = require("telescope.builtin")
 local telescope = require("telescope")
-local telescopeConfig = require("telescope.config")
 
 -- Clone the default Telescope configuration
-local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
-
+local vimgrep_arguments =
+	{ "rg", "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case" }
 -- I want to search in hidden/dot files.
 table.insert(vimgrep_arguments, "--hidden")
 -- I don't want to search in the `.git` directory.
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/.git/*")
+table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/node_modules/*")
+table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/build/*")
+table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!Flutter/**/ios/*")
 
 local actions = require("telescope.actions")
@@ -69,6 +71,7 @@ telescope.setup({
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fo", builtin.oldfiles, {})
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 
 -- notify
 require("telescope").load_extension("notify")

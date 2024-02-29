@@ -5,7 +5,7 @@ require("neoclip").setup({
 })
 
 vim.keymap.set("n", "<leader>nc", "<cmd>Telescope neoclip<cr>", {})
-vim.keymap.set("n", "<leader>nm", "<cmd>Telescope macrosscope<cr>", {})
+vim.keymap.set("n", "<leader>nm", "<cmd>Telescope macroscope<cr>", {})
 
 -- clear all history
 -- :lua require('neoclip').clear_history()

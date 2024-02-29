@@ -34,7 +34,15 @@ require("leap").add_repeat_mappings(";", ",", {
 require("dapui").setup()
 require("oilConfig")
 
-require("toggleterm").setup()
+require("toggleterm").setup({
+	open_mapping = [[<c-t>]],
+	winbar = {
+		enabled = true,
+		name_formatter = function(term) --  term: Terminal
+			return term.name
+		end,
+	},
+})
 require("neoclipConfig")
 
 require("toggletermManager")

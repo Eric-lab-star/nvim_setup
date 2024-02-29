@@ -15,15 +15,13 @@ require("nvim-treesitter.configs").setup({
 				["]p"] = "@parameter.inner",
 				["]f"] = "@function.outer",
 				["]c"] = { query = "@class.outer", desc = "Next class start" },
-			},
-			goto_next_end = {
-				["]P"] = "@parameter.outer",
-				["]F"] = "@function.outer",
-				["]C"] = "@class.outer",
-			},
-			goto_next = {
+				["]v"] = "@assignment.inner",
 				["]d"] = "@conditional.outer",
+				["]l"] = "@loop.outer",
+				["]e"] = "@call.outer",
 			},
+			goto_next_end = {},
+			goto_next = {},
 		},
 		select = {
 			enable = true,
@@ -42,5 +40,6 @@ require("nvim-treesitter.configs").setup({
 	},
 })
 local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
+
 vim.keymap.set({ "n", "x", "o" }, "<right>", ts_repeat_move.repeat_last_move_next)
 vim.keymap.set({ "n", "x", "o" }, "<left>", ts_repeat_move.repeat_last_move_previous)
