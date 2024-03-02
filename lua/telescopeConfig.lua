@@ -1,10 +1,6 @@
 local builtin = require("telescope.builtin")
 local telescope = require("telescope")
-local action_state = require("telescope.actions.state")
-local action_utils = require("telescope.actions.utils")
 local actions = require("telescope.actions")
-local conf = require("telescope.config").values
-local finders = require("telescope.finders")
 
 -- Clone the default Telescope configuration
 local vimgrep_arguments =
@@ -106,64 +102,3 @@ require("telescope").load_extension("coc")
 -- telescope.load_extension("harpoon")
 
 -- harpoon
-local harpoon = require("harpoon")
-harpoon:setup({})
-
-local generate_new_finder = function()
-	local harpoon_files = harpoon:list()
-	local file_paths = {}
-	for _, item in ipairs(harpoon_files.items) do
-		table.insert(file_paths, item.value)
-	end
-	return finders.new_table({
-		results = file_paths,
-	})
-end
-
-local deleteHarpoon = function(prompt_bufnr)
-	local confirmation = vim.fn.input(string.format("Delete current bullet(s)? [y/n]: "))
-	if string.len(confirmation) == 0 or string.sub(string.lower(confirmation), 0, 1) ~= "y" then
-		print(string.format("Didn't delete bullet"))
-		return
-	end
-
-	local selection = action_state.get_selected_entry()
-	harpoon:list():removeAt(selection.index)
-
-	local function get_selections()
-		local results = {}
-		action_utils.map_selections(prompt_bufnr, function(entry)
-			table.insert(results, entry)
-		end)
-		return results
-	end
-
-	local selections = get_selections()
-	for _, current_selection in ipairs(selections) do
-		harpoon:list():removeAt(current_selection.index)
-	end
-
-	local current_picker = action_state.get_current_picker(prompt_bufnr)
-	current_picker:refresh(generate_new_finder(), { reset_prompt = true })
-end
-
--- basic telescope configuration
-local function toggle_telescope()
-	require("telescope.pickers")
-		.new({}, {
-			prompt_title = "Harpoon",
-			finder = generate_new_finder(),
-			previewer = conf.file_previewer({}),
-			sorter = conf.generic_sorter({}),
-			attach_mappings = function(_, map)
-				map("n", "<c-d>", deleteHarpoon)
-				map("i", "<c-d>", deleteHarpoon)
-				return true
-			end,
-		})
-		:find()
-end
-
-vim.keymap.set("n", "<C-h>", function()
-	toggle_telescope()
-end, { desc = "Open harpoon window" })
