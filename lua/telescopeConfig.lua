@@ -18,12 +18,6 @@ table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!Flutter/**/ios/*")
 
 telescope.setup({
-	extensions = {
-		coc = {
-			theme = "ivy",
-			prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
-		},
-	},
 	defaults = {
 		-- `hidden = true` is not supported in text grep commands.
 		vimgrep_arguments = vimgrep_arguments,
@@ -91,14 +85,3 @@ vim.api.nvim_set_keymap(
 	[[<cmd>lua require'telescope'.extensions.goimpl.goimpl{}<CR>]],
 	{ noremap = true, silent = true }
 )
-
--- bookmark
-require("telescope").load_extension("bookmarks")
-
--- coc
-require("telescope").load_extension("coc")
-
--- harpoon mark
--- telescope.load_extension("harpoon")
-
--- harpoon

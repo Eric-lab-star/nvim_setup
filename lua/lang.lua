@@ -4,6 +4,7 @@ require("neodev").setup({
 -- Setup language servers.
 
 local lspconfig = require("lspconfig")
+
 lspconfig.sqlls.setup({})
 lspconfig.gopls.setup({})
 

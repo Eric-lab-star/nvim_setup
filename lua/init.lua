@@ -22,7 +22,6 @@ require("lualineConfig")
 require("nvim-surround").setup()
 require("tokyonightConfig")
 require("tools")
-require("mason").setup()
 require("formatterConfig")
 require("harpoonconfig")
 
@@ -44,6 +43,3 @@ require("toggleterm").setup({
 	},
 })
 require("neoclipConfig")
-
-require("toggletermManager")
-require("browser_bookmarks")

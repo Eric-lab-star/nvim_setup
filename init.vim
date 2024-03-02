@@ -86,7 +86,6 @@ Plug 'tokorom/vim-swift-format'
 Plug 'https://github.com/ggandor/leap.nvim'
 Plug 'https://github.com/tpope/vim-repeat' " repeat plugin command
 Plug 'mhartington/formatter.nvim' "integrated formatter for many languages
-Plug 'williamboman/mason.nvim'"lsp downloader
 Plug 'ThePrimeagen/harpoon',{'branch': 'harpoon2'}
 Plug 'preservim/vim-markdown', {'branch': 'master'}
 Plug 'https://github.com/mfussenegger/nvim-dap'
@@ -98,11 +97,8 @@ Plug 'edolphin-ydf/goimpl.nvim',
 Plug 'folke/neodev.nvim'
 Plug 'stevearc/oil.nvim'
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
-Plug 'ryanmsnyder/toggleterm-manager.nvim',
 Plug 'kkharji/sqlite.lua'
 Plug 'AckslD/nvim-neoclip.lua',
-Plug 'dhruvmanila/browser-bookmarks.nvim', { 'tag': '*' }
-Plug 'fannheyward/telescope-coc.nvim'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
