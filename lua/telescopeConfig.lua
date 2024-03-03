@@ -85,3 +85,7 @@ vim.api.nvim_set_keymap(
 	[[<cmd>lua require'telescope'.extensions.goimpl.goimpl{}<CR>]],
 	{ noremap = true, silent = true }
 )
+
+--- image preview
+
+require("telescope").load_extension("media_files") -- run Telescope: media_files
