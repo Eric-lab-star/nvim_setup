@@ -23,7 +23,7 @@
   },
   "coc.preferences.extensionUpdateCheck": "daily",
   "snippets.ultisnips.pythonPrompt": false,
-  "[typescript][json]": {
+  "[typescript][json][html][javascript]": {
     "coc.preferences.formatOnSave": true
   },
   "snippets.extends": {

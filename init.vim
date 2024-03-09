@@ -100,6 +100,7 @@ Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 Plug 'kkharji/sqlite.lua'
 Plug 'AckslD/nvim-neoclip.lua',
 Plug 'nvim-telescope/telescope-media-files.nvim'
+Plug 'fannheyward/telescope-coc.nvim'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -12,10 +12,11 @@ require("nvim-treesitter.configs").setup({
 			enable = true,
 			set_jumps = true, -- whether to set jumps in the jumplist
 			goto_next_start = {
-				["]p"] = "@parameter.inner",
+				["[p"] = "@parameter.inner",
+				["]p"] = "@parameter.outer",
 				["]f"] = "@function.outer",
 				["]c"] = { query = "@class.outer", desc = "Next class start" },
-				["]v"] = "@assignment.inner",
+				["[v"] = "@assignment.inner",
 				["]d"] = "@conditional.outer",
 				["]l"] = "@loop.outer",
 				["]e"] = "@call.outer",
@@ -35,6 +36,7 @@ require("nvim-treesitter.configs").setup({
 				["ad"] = { query = "@conditional.outer", desc = "Select outer part of condition" },
 				["ae"] = "@call.outer",
 				["al"] = "@loop.outer",
+				["ap"] = "@parameter.outer",
 			},
 		},
 	},
