@@ -34,5 +34,6 @@
   },
   "sql.database": "postgresql",
   "java.import.gradle.java.home": "/usr/local/Cellar/openjdk@17/17.0.9/libexec/openjdk.jdk/Contents/Home",
-  "java.saveActions.organizeImports": true
+  "java.saveActions.organizeImports": true,
+  "java.completion.filteredTypes": []
 }
