@@ -101,6 +101,7 @@ Plug 'kkharji/sqlite.lua'
 Plug 'AckslD/nvim-neoclip.lua',
 Plug 'nvim-telescope/telescope-media-files.nvim'
 Plug 'fannheyward/telescope-coc.nvim'
+Plug 'ryanmsnyder/toggleterm-manager.nvim',
 Plug 'Pocco81/auto-save.nvim'
 call plug#end()
 

@@ -18,6 +18,7 @@ require("nvim-treesitter.configs").setup({
 				["]c"] = { query = "@class.outer", desc = "Next class start" },
 				["[v"] = "@assignment.inner",
 				["]d"] = "@conditional.outer",
+				["[d"] = "@conditional.inner",
 				["]l"] = "@loop.outer",
 				["]e"] = "@call.outer",
 			},
