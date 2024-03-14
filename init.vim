@@ -41,6 +41,7 @@ augroup filetype
 augroup END
 autocmd FileType sql setlocal commentstring=--%s
 
+
 "Commands
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 command! -nargs=0 SqlFormat :CocCommand sql.Format
@@ -77,7 +78,7 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'https://github.com/tpope/vim-dadbod'
 Plug 'https://github.com/kristijanhusak/vim-dadbod-ui'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'codota/tabnine-nvim', { 'do': './dl_binaries.sh' }
+" Plug 'codota/tabnine-nvim', { 'do': './dl_binaries.sh' }
 Plug 'https://github.com/kylechui/nvim-surround'
 Plug 'godlygeek/tabular' "for alignment :Tabularize
 Plug 'm00qek/baleia.nvim', { 'tag': 'v1.3.0' }
