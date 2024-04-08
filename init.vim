@@ -104,6 +104,7 @@ Plug 'nvim-telescope/telescope-media-files.nvim'
 Plug 'fannheyward/telescope-coc.nvim'
 Plug 'ryanmsnyder/toggleterm-manager.nvim',
 Plug 'Pocco81/auto-save.nvim'
+Plug 'nvim-neotest/nvim-nio'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
