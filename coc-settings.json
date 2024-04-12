@@ -11,11 +11,6 @@
       "filetypes": ["go"],
       "initializationOptions": {}
     },
-    "godot": {
-      "host": "127.0.0.1",
-      "filetypes": ["gd", "gdscript", "gdscript3"],
-      "port": 6005
-    },
     "sourcekit-lsp": {
       "filetypes": ["swift"],
       "command": "sourcekit-lsp"
