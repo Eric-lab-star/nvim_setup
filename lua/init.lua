@@ -25,7 +25,7 @@ require("tools")
 require("formatterConfig")
 require("harpoonconfig")
 
-require("leap").add_repeat_mappings(";", ",", {
+require("leap").add_repeat_mappings(";;", ";,", {
 	relative_directions = true,
 	modes = { "n", "x", "o" },
 })

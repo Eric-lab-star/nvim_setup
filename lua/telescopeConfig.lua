@@ -10,18 +10,41 @@ table.insert(vimgrep_arguments, "--hidden")
 -- I don't want to search in the `.git` directory.
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/.git/*")
-table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/node_modules/*")
-table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/build/*")
-table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!Flutter/**/ios/*")
+table.insert(vimgrep_arguments, "!**/*.png")
 
+-- dap
+require("telescope").load_extension("dap")
+
+-- goimpl
+require("telescope").load_extension("goimpl")
+
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>im",
+	[[<cmd>lua require'telescope'.extensions.goimpl.goimpl{}<CR>]],
+	{ noremap = true, silent = true }
+)
+
+--- image preview
+
+require("telescope").load_extension("media_files") -- run Telescope: media_files
+
+--- coc telescope
+
+--
 telescope.setup({
 	extensions = {
 		coc = {
 			theme = "ivy",
 			prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
+		},
+		media_files = {
+			find_cmd = {
+				"rg",
+			},
 		},
 	},
 	defaults = {
@@ -62,6 +85,8 @@ telescope.setup({
 				"!**/linux/*",
 				"--glob",
 				"!**/.dart_tool/*",
+				"--glob",
+				"!**/*.png",
 			},
 		},
 		oldfiles = {},
@@ -76,27 +101,6 @@ vim.keymap.set("n", "<leader>ft", ":Telescope toggleterm_manager<cr>", {})
 
 -- notify
 require("telescope").load_extension("notify")
-
--- dap
-require("telescope").load_extension("dap")
-
 -- fzf
 require("telescope").load_extension("fzf")
-
--- goimpl
-require("telescope").load_extension("goimpl")
-
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>im",
-	[[<cmd>lua require'telescope'.extensions.goimpl.goimpl{}<CR>]],
-	{ noremap = true, silent = true }
-)
-
---- image preview
-
-require("telescope").load_extension("media_files") -- run Telescope: media_files
-
---- coc telescope
-
 require("telescope").load_extension("coc")

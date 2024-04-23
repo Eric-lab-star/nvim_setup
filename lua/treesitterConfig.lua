@@ -11,9 +11,17 @@ require("nvim-treesitter.configs").setup({
 		move = {
 			enable = true,
 			set_jumps = true, -- whether to set jumps in the jumplist
+			--  start inner - [
+			--  start outer - ]
+			--  end inner - ;
+			--  end outer - '
+			--  next - small
+			--  prev - big
 			goto_next_start = {
 				["[p"] = "@parameter.inner",
+				["]p"] = "@parameter.outer",
 				["]f"] = "@function.outer",
+				["[f"] = "@function.inner",
 				["]c"] = { query = "@class.outer", desc = "Next class start" },
 				["[c"] = { query = "@class.inner", desc = "Next class end" },
 				["[v"] = "@assignment.inner",
@@ -25,11 +33,43 @@ require("nvim-treesitter.configs").setup({
 				["]e"] = "@call.outer",
 				["[e"] = "@call.inner",
 			},
-			goto_next_end = {},
-			goto_next = {},
+			goto_next_end = {
+				[";p"] = "@parameter.inner",
+				["'p"] = "@parameter.outer",
+				[";f"] = "@function.inner",
+				["'f"] = "@function.outer",
+				["'c"] = { query = "@class.outer", desc = "Next class start" },
+				[";c"] = { query = "@class.inner", desc = "Next class end" },
+				[";v"] = "@assignment.inner",
+				["'v"] = "@assignment.outer",
+				["'d"] = "@conditional.outer",
+				[";d"] = "@conditional.inner",
+				["'l"] = "@loop.outer",
+				[";l"] = "@loop.inner",
+				["'e"] = "@call.outer",
+				[";e"] = "@call.inner",
+			},
+			goto_previous_end = {
+				[";P"] = "@parameter.inner",
+				["'P"] = "@parameter.outer",
+				["'F"] = "@function.outer",
+				[";F"] = "@function.inner",
+				["'C"] = { query = "@class.outer", desc = "Next class start" },
+				[";C"] = { query = "@class.inner", desc = "Next class end" },
+				[";V"] = "@assignment.inner",
+				["'V"] = "@assignment.outer",
+				["'D"] = "@conditional.outer",
+				[";D"] = "@conditional.inner",
+				["'L"] = "@loop.outer",
+				[";L"] = "@loop.inner",
+				["'E"] = "@call.outer",
+				[";E"] = "@call.inner",
+			},
 			goto_previous_start = {
 				["[P"] = "@parameter.inner",
+				["]P"] = "@parameter.outer",
 				["]F"] = "@function.outer",
+				["[F"] = "@function.inner",
 				["]C"] = { query = "@class.outer", desc = "Next class start" },
 				["[C"] = { query = "@class.inner", desc = "Next class end" },
 				["[V"] = "@assignment.inner",

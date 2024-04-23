@@ -37,9 +37,9 @@ keyset("i", "<c-space>", "coc#refresh()", { silent = true, expr = true })
 
 -- Use `[g` and `]g` to navigate diagnostics
 -- Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
-keyset("n", "g[", "<Plug>(coc-diagnostic-prev)", { silent = true })
-keyset("n", "<space>g", ":Telescope coc diagnostics<cr>", { silent = true })
-keyset("n", "g]", "<Plug>(coc-diagnostic-next)", { silent = true })
+keyset("n", "d[", "<Plug>(coc-diagnostic-prev)", { silent = true })
+keyset("n", "<space>d", ":Telescope coc diagnostics<cr>", { silent = true })
+keyset("n", "d]", "<Plug>(coc-diagnostic-next)", { silent = true })
 
 -- GoTo code navigation
 keyset("n", "gd", "<Plug>(coc-definition)", { silent = true })
@@ -157,7 +157,7 @@ vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}"
 ---@diagnostic disable-next-line: redefined-local
 local opts = { silent = true, nowait = true }
 -- Show all diagnostics
-keyset("n", "<space>wg", ":Telescope coc workspace_diagnostics<cr>", opts)
+keyset("n", "<space>wd", ":Telescope coc workspace_diagnostics<cr>", opts)
 -- Manage extensions
 keyset("n", "<space>e", ":<C-u>CocList extensions<cr>", opts)
 -- Show commands
