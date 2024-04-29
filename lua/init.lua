@@ -12,6 +12,7 @@ require("noice").setup({
 		enabled = false,
 	},
 })
+require("todo-comments").setup()
 require("notify").setup({
 	background_colour = "#000000",
 	max_width = 100,

@@ -5,14 +5,18 @@ local actions = require("telescope.actions")
 -- Clone the default Telescope configuration
 local vimgrep_arguments =
 	{ "rg", "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case" }
--- I want to search in hidden/dot files.
+--I want to search in hidden/dot files.
 table.insert(vimgrep_arguments, "--hidden")
 -- I don't want to search in the `.git` directory.
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/.git/*")
+table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/node_modules/*")
+table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/build/*")
+table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!Flutter/**/ios/*")
+table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/*.png")
 
 -- dap
@@ -90,6 +94,37 @@ telescope.setup({
 			},
 		},
 		oldfiles = {},
+		live_grep = {
+			find_files = {
+				find_command = {
+					"rg",
+					"--files",
+					"--hidden",
+					"--glob",
+					"!**/node_modules/*",
+					"--glob",
+					"!**/.git/*",
+					"--glob",
+					"!**/ios/*",
+					"--glob",
+					"!**/build/*",
+					"--glob",
+					"!**/android/*",
+					"--glob",
+					"!**/macos/*",
+					"--glob",
+					"!**/web/*",
+					"--glob",
+					"!**/windows/*",
+					"--glob",
+					"!**/linux/*",
+					"--glob",
+					"!**/.dart_tool/*",
+					"--glob",
+					"!**/*.png",
+				},
+			},
+		},
 	},
 })
 

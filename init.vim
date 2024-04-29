@@ -104,6 +104,7 @@ Plug 'fannheyward/telescope-coc.nvim'
 Plug 'ryanmsnyder/toggleterm-manager.nvim',
 Plug 'Pocco81/auto-save.nvim'
 Plug 'nvim-neotest/nvim-nio'
+Plug 'folke/todo-comments.nvim'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
