@@ -2,6 +2,7 @@
   "workspace.ignoredFolders": ["$HOME", "$HOME/.cargo/**", "$HOME/.rustup/**"],
   "suggest.noselect": true,
   "html.format.enable": false,
+  "java.jdt.ls.directory": "/Users/kyungsubkim/jdtls",
   "languageserver": {
     "go": {
       "command": "gopls",
@@ -14,6 +15,16 @@
     "sourcekit-lsp": {
       "filetypes": ["swift"],
       "command": "sourcekit-lsp"
+    },
+    "gradle": {
+      "command": "gradle-language-server",
+      "rootPatterns": ["settings.gradle", "build.gradle"],
+      "filetypes": ["groovy"],
+      "initializationOptions": {
+        "settings": {
+          "gradleWrapperEnabled": true
+        }
+      }
     }
   },
   "coc.preferences.extensionUpdateCheck": "daily",

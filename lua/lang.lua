@@ -7,6 +7,12 @@ local lspconfig = require("lspconfig")
 
 lspconfig.sqlls.setup({})
 lspconfig.gopls.setup({})
+lspconfig.gradle_ls.setup({
+	cmd = {
+		"gradle-language-server",
+	},
+})
+--lspconfig.jdtls.setup({})
 
 lspconfig.lua_ls.setup({
 	settings = {

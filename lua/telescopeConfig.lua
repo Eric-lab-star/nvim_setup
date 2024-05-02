@@ -132,6 +132,8 @@ vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fo", builtin.oldfiles, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+vim.keymap.set("n", "<leader>ic", builtin.lsp_incoming_calls, {})
+
 vim.keymap.set("n", "<leader>ft", ":Telescope toggleterm_manager<cr>", {})
 
 -- notify

@@ -4,6 +4,7 @@ let g:netrw_liststyle = 3
 let g:netrw_browse_split = 0
 let g:netrw_winsize = 30
 
+:set rtp+=/usr/local/opt/fzf
 :set ignorecase
 :set termguicolors            " 24 bit color
 :set incsearch
