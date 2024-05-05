@@ -32,6 +32,7 @@ let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_strikethrough = 1
 let g:vim_markdown_autowrite = 1
 let g:vim_markdown_no_extensions_in_markdown = 1
+let g:vim_markdown_follow_anchor = 1
 
 nmap ge <Plug>Markdown_EditUrlUnderCursor
 
@@ -106,6 +107,7 @@ Plug 'ryanmsnyder/toggleterm-manager.nvim',
 Plug 'Pocco81/auto-save.nvim'
 Plug 'nvim-neotest/nvim-nio'
 Plug 'folke/todo-comments.nvim'
+Plug 'MeanderingProgrammer/markdown.nvim',
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

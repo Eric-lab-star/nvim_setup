@@ -2,7 +2,6 @@
   "workspace.ignoredFolders": ["$HOME", "$HOME/.cargo/**", "$HOME/.rustup/**"],
   "suggest.noselect": true,
   "html.format.enable": false,
-  "java.jdt.ls.directory": "/Users/kyungsubkim/jdtls",
   "languageserver": {
     "go": {
       "command": "gopls",
@@ -39,7 +38,5 @@
     "keywordCase": "upper"
   },
   "sql.database": "postgresql",
-  "java.import.gradle.java.home": "/usr/local/Cellar/openjdk@17/17.0.9/libexec/openjdk.jdk/Contents/Home",
-  "java.saveActions.organizeImports": true,
-  "java.completion.filteredTypes": []
+  "java.saveActions.organizeImports": true
 }

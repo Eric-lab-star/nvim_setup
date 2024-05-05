@@ -30,11 +30,12 @@ require("leap").add_repeat_mappings(";;", ";,", {
 	relative_directions = true,
 	modes = { "n", "x", "o" },
 })
-
+require("render-markdown").setup({})
 require("dapui").setup()
 require("oilConfig")
 require("toggleTermconfig")
 require("neoclipConfig")
+require("gitsignsConfig")
 require("auto-save").setup({
 	enabled = false,
 	execution_message = {
