@@ -57,3 +57,5 @@ require("auto-save").setup({
 })
 
 vim.api.nvim_set_keymap("n", "<leader>nf", ":ASToggle<CR>", {})
+require("Comment").setup()
+require("ibl").setup()

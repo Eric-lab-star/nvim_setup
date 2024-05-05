@@ -3,6 +3,14 @@
   "suggest.noselect": true,
   "html.format.enable": false,
   "languageserver": {
+    "cmake": {
+      "command": "cmake-language-server",
+      "filetypes": ["cmake"],
+      "rootPatterns": ["build/"],
+      "initializationOptions": {
+        "buildDirectory": "build"
+      }
+    },
     "go": {
       "command": "gopls",
       "args": ["serve", "-debug", "0.0.0.0:8484", "-rpc.trace"],
@@ -38,5 +46,6 @@
     "keywordCase": "upper"
   },
   "sql.database": "postgresql",
-  "java.saveActions.organizeImports": true
+  "java.saveActions.organizeImports": true,
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/18.1.3/clangd_18.1.3/bin/clangd"
 }

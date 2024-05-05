@@ -174,3 +174,5 @@ keyset("n", "<space>j", ":<C-u>CocNext<cr>", opts)
 keyset("n", "<space>k", ":<C-u>CocPrev<cr>", opts)
 -- open snippets
 keyset("n", "<space>p", ":<C-u>CocList snippets<cr>", opts)
+keyset("n", "<space>ic", ":call CocAction('showIncomingCalls')<cr>", opts)
+keyset("n", "<space>oc", ":call CocAction('showOutgoingCalls')<cr>", opts)
