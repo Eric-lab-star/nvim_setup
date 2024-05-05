@@ -30,6 +30,28 @@ require("formatter").setup({
 				}
 			end,
 		},
+		python = {
+			function()
+				return {
+					exe = "autopep8",
+					args = {
+						"--aggressive",
+						"--aggressive",
+						"-",
+					},
+					stdin = 1,
+				}
+			end,
+		},
+		cmake = {
+			function()
+				return {
+					exe = "cmake-format",
+					args = { "-" },
+					stdin = true,
+				}
+			end,
+		},
 		json = { require("formatter.filetypes.json").prettier },
 		css = { require("formatter.filetypes.css").prettier },
 		html = { require("formatter.filetypes.html").prettier },
