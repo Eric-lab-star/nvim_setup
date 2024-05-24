@@ -9,10 +9,11 @@ require("flutter-tools").setup({})
 require("todo-comments").setup()
 require("noiceConfig")
 require("notify").setup({
-	background_colour = "#000000",
+	-- background_colour = "#000000",
 	max_width = 100,
-	timeout = 1000,
-	stages = "static",
+	render = "wrapped-compact",
+	timeout = 5000,
+	stages = "fade_in_slide_out",
 })
 require("lualineConfig")
 require("nvim-surround").setup()
