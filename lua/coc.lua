@@ -99,6 +99,7 @@ keyset("n", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
 
 -- Remap keys for apply code actions at the cursor position.
 keyset("n", "<leader>ac", "<Plug>(coc-codeaction-cursor)", opts)
+keyset("n", "<space>ac", ":Telescope coc code_actions<cr>", opts)
 -- Remap keys for apply source code actions for current file.
 keyset("n", "<leader>as", "<Plug>(coc-codeaction-source)", opts)
 -- Apply the most preferred quickfix action on the current line.
@@ -161,7 +162,7 @@ keyset("n", "<space>wd", ":Telescope coc workspace_diagnostics<cr>", opts)
 -- Manage extensions
 keyset("n", "<space>e", ":<C-u>CocList extensions<cr>", opts)
 -- Show commands
-keyset("n", "<space>c", ":<C-u>CocList commands<cr>", opts)
+keyset("n", "<space>c", ":Telescope coc commands<cr>", opts)
 -- Find symbol of current document
 keyset("n", "<space>o", ":Telescope coc document_symbols<cr>", opts)
 --keyset("n", "<space>o", ":<C-u>CocList outline<cr>", opts)

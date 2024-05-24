@@ -2,16 +2,16 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 augroup("__formatter__", { clear = true })
+
 autocmd("BufWritePost", {
 	group = "__formatter__",
 	command = ":FormatWrite",
 })
 
-autocmd("BufWritePost", {
+autocmd("BufWritePre", {
 	group = "__formatter__",
-	command = ":Prettier",
+	command = ":SqlFormat",
 })
-
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 require("formatter").setup({
 	-- Enable or disable logging
@@ -52,7 +52,22 @@ require("formatter").setup({
 				}
 			end,
 		},
+		kotlin = {
+			require("formatter.filetypes.kotlin").ktlint,
+		},
+		groovy = {
+			function()
+				return {
+					exe = "npm-groovy-lint",
+					args = {
+						"--format",
+						"*.gradle",
+					},
+				}
+			end,
+		},
 		json = { require("formatter.filetypes.json").prettier },
+
 		css = { require("formatter.filetypes.css").prettier },
 		html = { require("formatter.filetypes.html").prettier },
 		lua = { require("formatter.filetypes.lua").stylua },

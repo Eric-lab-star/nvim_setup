@@ -6,13 +6,8 @@ require("treesitterConfig")
 require("go").setup()
 require("icon-picker").setup({ disable_legacy_commands = true })
 require("flutter-tools").setup({})
--- require("tabnineConfig")
-require("noice").setup({
-	messages = {
-		enabled = false,
-	},
-})
 require("todo-comments").setup()
+require("noiceConfig")
 require("notify").setup({
 	background_colour = "#000000",
 	max_width = 100,
@@ -22,7 +17,6 @@ require("notify").setup({
 require("lualineConfig")
 require("nvim-surround").setup()
 require("tokyonightConfig")
-require("tools")
 require("formatterConfig")
 require("harpoonconfig")
 
@@ -36,26 +30,26 @@ require("oilConfig")
 require("toggleTermconfig")
 require("neoclipConfig")
 require("gitsignsConfig")
-require("auto-save").setup({
-	enabled = false,
-	execution_message = {
-		dim = 0,
-	},
-	trigger_events = { "InsertLeave", "TextChanged" }, -- vim events that trigger auto-save. See :h events
-	-- function that determines whether to save the current buffer or not
-	-- return true: if buffer is ok to be saved
-	-- return false: if it's not ok to be saved
-	condition = function(buf)
-		local fn = vim.fn
-		local utils = require("auto-save.utils.data")
-
-		if fn.getbufvar(buf, "&modifiable") == 1 and utils.not_in(fn.getbufvar(buf, "&filetype"), {}) then
-			return true -- met condition(s), can save
-		end
-		return false -- can't save
-	end,
-})
-
-vim.api.nvim_set_keymap("n", "<leader>nf", ":ASToggle<CR>", {})
 require("Comment").setup()
 require("ibl").setup()
+require("copilot").setup({})
+require("CopilotChat").setup({
+	debug = false, -- Enable debugging
+	-- See Configuration section for rest
+	window = {
+		layout = "float", -- 'vertical', 'horizontal', 'float', 'replace'
+		width = 0.5, -- fractional width of parent, or absolute width in columns when > 1
+		height = 0.8, -- fractional height of parent, or absolute height in rows when > 1
+		-- Options below only apply to floating windows
+		relative = "editor", -- 'editor', 'win', 'cursor', 'mouse'
+		border = "single", -- 'none', single', 'double', 'rounded', 'solid', 'shadow'
+		row = 4, -- row position of the window, default is centered
+		col = nil, -- column position of the window, default is centered
+		title = "Copilot Chat", -- title of chat window
+		footer = nil, -- footer of chat window
+		zindex = 1, -- determines if window is on top or below other floating windows
+	},
+})
+
+local chat = require("CopilotChat")
+vim.keymap.set("n", "cct", chat.toggle)

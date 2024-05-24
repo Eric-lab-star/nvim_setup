@@ -1,9 +1,4 @@
-let g:sql_typ_default = 'pgsql'
-let g:netrw_banner = 1
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 0
-let g:netrw_winsize = 30
-
+:set nofoldenable
 :set rtp+=/usr/local/opt/fzf
 :set ignorecase
 :set termguicolors            " 24 bit color
@@ -25,10 +20,8 @@ let g:netrw_winsize = 30
 :set clipboard=unnamed
 :set encoding=UTF-8
 
-let g:vim_markdown_no_default_key_mappings=1
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_auto_insert_bullets = 0
-let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_strikethrough = 1
 let g:vim_markdown_autowrite = 1
 let g:vim_markdown_no_extensions_in_markdown = 1
@@ -45,9 +38,9 @@ autocmd FileType sql setlocal commentstring=--%s
 
 
 "Commands
-command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
-command! -nargs=0 SqlFormat :CocCommand sql.Format
-autocmd ColorScheme * highlight CocHighlightText     ctermfg=Magenta guifg=Magenta
+ command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
+ command! -nargs=0 SqlFormat :CocCommand sql.Format
+ autocmd ColorScheme * highlight CocHighlightText     ctermfg=Magenta guifg=Magenta
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Plugins
@@ -104,19 +97,23 @@ Plug 'AckslD/nvim-neoclip.lua',
 Plug 'nvim-telescope/telescope-media-files.nvim'
 Plug 'fannheyward/telescope-coc.nvim'
 Plug 'ryanmsnyder/toggleterm-manager.nvim',
-Plug 'Pocco81/auto-save.nvim'
 Plug 'nvim-neotest/nvim-nio'
 Plug 'folke/todo-comments.nvim'
 Plug 'MeanderingProgrammer/markdown.nvim',
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'zbirenbaum/copilot.lua'
+Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }
+Plug 'github/copilot.vim'
+"""""cmp
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+let g:db_ui_env_variable_url = 'MYSQL_URL'
 "for DBUI
-let g:dbs =[
-\ {'name': 'dev', 'url': 'postgres://kyungsubkim@localhost:5432/kyungsubkim'},
-\]
-
+" let g:dbs =[
+" \ {'name': 'postgres', 'url': 'postgres://kyungsubkim@localhost:5432/kyungsubkim'},
+" \ {'name': 'mysql', 'url': db_ui_env_variable_url},
+" \]
+let g:db_ui_save_location = '/Users/kyungsubkim/Programming/SQL'
 :lua require('init')

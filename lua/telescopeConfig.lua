@@ -19,6 +19,8 @@ table.insert(vimgrep_arguments, "!Flutter/**/ios/*")
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/*.png")
 
+-- noice
+require("telescope").load_extension("noice")
 -- dap
 require("telescope").load_extension("dap")
 
@@ -132,8 +134,12 @@ vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fo", builtin.oldfiles, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-vim.keymap.set("n", "<leader>ft", ":Telescope toggleterm_manager<cr>", {})
+vim.keymap.set({ "v", "n" }, "<leader>ccp", function()
+	local actions = require("CopilotChat.actions")
+	require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
+end, { desc = "CopilotChat - Prompt actions" })
 
+vim.keymap.set("n", "<leader>ft", ":Telescope toggleterm_manager<cr>", {})
 -- notify
 require("telescope").load_extension("notify")
 -- fzf
