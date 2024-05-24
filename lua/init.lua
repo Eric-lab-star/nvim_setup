@@ -1,5 +1,12 @@
 require("telescopeConfig")
-require("leap").create_default_mappings()
+
+vim.keymap.set({ "n", "x", "o" }, "<leader>s", "<Plug>(leap-forward)")
+vim.keymap.set({ "n", "x", "o" }, "<leader>S", "<Plug>(leap-backward)")
+
+require("leap").add_repeat_mappings(";", ",", {
+	relative_directions = true,
+	modes = { "n", "x", "o" },
+})
 require("lang")
 require("coc")
 require("treesitterConfig")
@@ -21,10 +28,6 @@ require("tokyonightConfig")
 require("formatterConfig")
 require("harpoonconfig")
 
-require("leap").add_repeat_mappings(";;", ";,", {
-	relative_directions = true,
-	modes = { "n", "x", "o" },
-})
 require("render-markdown").setup({})
 require("dapui").setup()
 require("oilConfig")
@@ -53,4 +56,4 @@ require("CopilotChat").setup({
 })
 
 local chat = require("CopilotChat")
-vim.keymap.set("n", "cct", chat.toggle)
+vim.keymap.set("n", "<leader>cct", chat.toggle)

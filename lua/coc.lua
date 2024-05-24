@@ -115,14 +115,14 @@ keyset("n", "<leader>cl", "<Plug>(coc-codelens-action)", opts)
 
 -- Map function and class text objects
 -- NOTE: Requires 'textDocument.documentSymbol' support from the language server
-keyset("x", "if", "<Plug>(coc-funcobj-i)", opts)
-keyset("o", "if", "<Plug>(coc-funcobj-i)", opts)
-keyset("x", "af", "<Plug>(coc-funcobj-a)", opts)
-keyset("o", "af", "<Plug>(coc-funcobj-a)", opts)
-keyset("x", "ic", "<Plug>(coc-classobj-i)", opts)
-keyset("o", "ic", "<Plug>(coc-classobj-i)", opts)
-keyset("x", "ac", "<Plug>(coc-classobj-a)", opts)
-keyset("o", "ac", "<Plug>(coc-classobj-a)", opts)
+-- keyset("x", "if", "<Plug>(coc-funcobj-i)", opts)
+-- keyset("o", "if", "<Plug>(coc-funcobj-i)", opts)
+-- keyset("x", "af", "<Plug>(coc-funcobj-a)", opts)
+-- keyset("o", "af", "<Plug>(coc-funcobj-a)", opts)
+-- keyset("x", "ic", "<Plug>(coc-classobj-i)", opts)
+-- keyset("o", "ic", "<Plug>(coc-classobj-i)", opts)
+-- keyset("x", "ac", "<Plug>(coc-classobj-a)", opts)
+-- keyset("o", "ac", "<Plug>(coc-classobj-a)", opts)
 
 -- Remap <C-f> and <C-b> to scroll float windows/popups
 ---@diagnostic disable-next-line: redefined-local
@@ -136,8 +136,8 @@ keyset("v", "<C-d>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-d>"', o
 
 -- Use CTRL-S for selections ranges
 -- Requires 'textDocument/selectionRange' support of language server
-keyset("n", "<C-s>", "<Plug>(coc-range-select)", { silent = true })
-keyset("x", "<C-s>", "<Plug>(coc-range-select)", { silent = true })
+-- keyset("n", "<C-s>", "<Plug>(coc-range-select)", { silent = true })
+-- keyset("x", "<C-s>", "<Plug>(coc-range-select)", { silent = true })
 
 -- Add `:Format` command to format current buffer
 vim.api.nvim_create_user_command("Format", "call CocAction('format')", {})
