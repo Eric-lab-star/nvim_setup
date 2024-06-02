@@ -105,15 +105,15 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'zbirenbaum/copilot.lua'
 Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }
 Plug 'github/copilot.vim'
+Plug 'keaising/im-select.nvim'
 """""cmp
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:db_ui_env_variable_url = 'MYSQL_URL'
 "for DBUI
-" let g:dbs =[
-" \ {'name': 'postgres', 'url': 'postgres://kyungsubkim@localhost:5432/kyungsubkim'},
-" \ {'name': 'mysql', 'url': db_ui_env_variable_url},
-" \]
+let g:dbs =[
+\ {'name': 'go_mysql', 'url':'mysql://kyungsubkim@localhost:3306/goDB'  },
+\ {'name': 'game_mysql', 'url': 'mysql://kyungsubkim@localhost:3306/game'},
+\]
 let g:db_ui_save_location = '/Users/kyungsubkim/Programming/SQL'
 :lua require('init')

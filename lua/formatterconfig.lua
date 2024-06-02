@@ -8,6 +8,11 @@ autocmd("BufWritePost", {
 	command = ":FormatWrite",
 })
 
+autocmd("CompleteDone", {
+	command = ""
+	
+})
+
 autocmd("BufWritePre", {
 	group = "__formatter__",
 	command = ":SqlFormat",
@@ -76,6 +81,7 @@ require("formatter").setup({
 		cpp = { require("formatter.filetypes.cpp").clangformat },
 		java = { require("formatter.filetypes.java").clangformat },
 		typescript = { require("formatter.filetypes.typescript").prettier },
+		typescriptreact = { require("formatter.filetypes.typescriptreact").prettier },
 		["*"] = {
 			require("formatter.filetypes.any").remove_trailing_whitespace,
 		},

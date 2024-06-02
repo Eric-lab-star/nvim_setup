@@ -19,7 +19,7 @@ require("notify").setup({
 	-- background_colour = "#000000",
 	max_width = 100,
 	render = "wrapped-compact",
-	timeout = 5000,
+	timeout = 1000,
 	stages = "fade_in_slide_out",
 })
 require("lualineConfig")
@@ -37,7 +37,16 @@ require("gitsignsConfig")
 require("Comment").setup()
 require("ibl").setup()
 require("copilot").setup({})
+
+local chat = require("CopilotChat")
+vim.keymap.set("n", "<leader>cct", chat.toggle)
 require("CopilotChat").setup({
+	mappings = {
+		complete = {
+			detail = "Use @<Tab> or /<Tab> for options.",
+			insert = "<C-f>",
+		},
+	},
 	debug = false, -- Enable debugging
 	-- See Configuration section for rest
 	window = {
@@ -54,6 +63,11 @@ require("CopilotChat").setup({
 		zindex = 1, -- determines if window is on top or below other floating windows
 	},
 })
-
-local chat = require("CopilotChat")
-vim.keymap.set("n", "<leader>cct", chat.toggle)
+require("im_select").setup({
+	default_im_select = "org.youknowone.inputmethod.Gureum.system",
+	default_command = "im-select",
+	set_default_events = { "VimEnter", "FocusGained", "InsertLeave", "CmdlineLeave" },
+	set_previous_events = { "InsertEnter" },
+	keep_quiet_on_no_binary = false,
+	async_switch_im = true,
+})

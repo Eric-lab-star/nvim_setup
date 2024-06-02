@@ -49,5 +49,6 @@
     "jdk.*",
     "org.graalvm.*",
     "io.micrometer.shaded.*"
-  ]
+  ],
+  "xml.java.home": "/usr/local/opt/openjdk@17"
 }
