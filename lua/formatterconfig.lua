@@ -2,22 +2,12 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 augroup("__formatter__", { clear = true })
-
 autocmd("BufWritePost", {
 	group = "__formatter__",
 	command = ":FormatWrite",
 })
 
-autocmd("CompleteDone", {
-	command = ""
-	
-})
-
-autocmd("BufWritePre", {
-	group = "__formatter__",
-	command = ":SqlFormat",
-})
--- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
+-- Formatter
 require("formatter").setup({
 	-- Enable or disable logging
 	logging = true,
@@ -25,16 +15,7 @@ require("formatter").setup({
 	log_level = vim.log.levels.WARN,
 	-- All formatter configurations are opt-in
 	filetype = {
-		go = {
-			function()
-				return {
-					exe = "goimports",
-					args = {
-						"-w",
-					},
-				}
-			end,
-		},
+		go = { require("formatter.filetypes.go").goimports },
 		python = {
 			function()
 				return {
@@ -82,8 +63,5 @@ require("formatter").setup({
 		java = { require("formatter.filetypes.java").clangformat },
 		typescript = { require("formatter.filetypes.typescript").prettier },
 		typescriptreact = { require("formatter.filetypes.typescriptreact").prettier },
-		["*"] = {
-			require("formatter.filetypes.any").remove_trailing_whitespace,
-		},
 	},
 })

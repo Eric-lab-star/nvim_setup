@@ -1,4 +1,3 @@
-:set nofoldenable
 :set rtp+=/usr/local/opt/fzf
 :set ignorecase
 :set termguicolors            " 24 bit color
@@ -28,7 +27,6 @@ let g:vim_markdown_no_extensions_in_markdown = 1
 let g:vim_markdown_follow_anchor = 1
 
 nmap ge <Plug>Markdown_EditUrlUnderCursor
-
 filetype plugin on
 syntax on
 augroup filetype
@@ -46,7 +44,7 @@ autocmd FileType sql setlocal commentstring=--%s
 "Plugins
 call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'ray-x/go.nvim'
+" Plug 'ray-x/go.nvim'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'lewis6991/gitsigns.nvim'
@@ -106,7 +104,7 @@ Plug 'zbirenbaum/copilot.lua'
 Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }
 Plug 'github/copilot.vim'
 Plug 'keaising/im-select.nvim'
-"""""cmp
+Plug 'kevinhwang91/promise-async'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

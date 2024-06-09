@@ -5,6 +5,8 @@ require("neodev").setup({
 
 local lspconfig = require("lspconfig")
 
+lspconfig.tsserver.setup({})
+
 lspconfig.sqlls.setup({})
 lspconfig.gopls.setup({})
 lspconfig.gradle_ls.setup({
@@ -44,3 +46,39 @@ lspconfig.lua_ls.setup({
 vim.g.dart_format_on_save = true
 vim.g.dart_html_in_string = true
 vim.g.dart_style_guide = 2
+
+--add missing imports and remove unused imports for TS
+-- @return boolean
+local function format_ts_imports()
+	local params = vim.lsp.util.make_range_params()
+	params.context = {
+		only = { "source.addMissingImports.ts", "source.removeUnused.ts" },
+	}
+	local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
+	for _, res in pairs(result or {}) do
+		for _, r in pairs(res.result or {}) do
+			if r.kind == "source.addMissingImports.ts" then
+				vim.lsp.buf.code_action({
+					apply = true,
+					context = {
+						only = { "source.addMissingImports.ts" },
+					},
+				})
+				vim.cmd("write")
+			else
+				if r.kind == "source.removeUnused.ts" then
+					vim.lsp.buf.code_action({
+						apply = true,
+						context = {
+							only = { "source.removeUnused.ts" },
+						},
+					})
+					vim.cmd("write")
+				end
+			end
+		end
+	end
+	return true
+end
+
+vim.api.nvim_create_user_command("FormatTSImports", format_ts_imports, {})

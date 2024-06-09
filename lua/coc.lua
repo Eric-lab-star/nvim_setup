@@ -23,8 +23,8 @@ end
 -- NOTE: Use command ':verbose imap <tab>' to make sure Tab is not mapped by
 -- other plugins before putting this into your config
 local opts = { silent = true, noremap = true, expr = true, replace_keycodes = false }
-keyset("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
-keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
+-- keyset("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
+-- keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
 
 -- Make <CR> to accept selected completion item or notify coc.nvim to format
 -- <C-g>u breaks current undo, please make your own choice
@@ -111,18 +111,7 @@ keyset("x", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = 
 keyset("n", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
 
 -- Run the Code Lens actions on the current line
-keyset("n", "<leader>cl", "<Plug>(coc-codelens-action)", opts)
-
--- Map function and class text objects
--- NOTE: Requires 'textDocument.documentSymbol' support from the language server
--- keyset("x", "if", "<Plug>(coc-funcobj-i)", opts)
--- keyset("o", "if", "<Plug>(coc-funcobj-i)", opts)
--- keyset("x", "af", "<Plug>(coc-funcobj-a)", opts)
--- keyset("o", "af", "<Plug>(coc-funcobj-a)", opts)
--- keyset("x", "ic", "<Plug>(coc-classobj-i)", opts)
--- keyset("o", "ic", "<Plug>(coc-classobj-i)", opts)
--- keyset("x", "ac", "<Plug>(coc-classobj-a)", opts)
--- keyset("o", "ac", "<Plug>(coc-classobj-a)", opts)
+-- keyset("n", "<leader>cl", "<Plug>(coc-codelens-action)", opts)
 
 -- Remap <C-f> and <C-b> to scroll float windows/popups
 ---@diagnostic disable-next-line: redefined-local
@@ -134,13 +123,8 @@ keyset("i", "<C-d>", 'coc#float#has_scroll() ? "<c-r>=coc#float#scroll(1)<cr>" :
 keyset("v", "<C-u>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-u>"', opts)
 keyset("v", "<C-d>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-d>"', opts)
 
--- Use CTRL-S for selections ranges
--- Requires 'textDocument/selectionRange' support of language server
--- keyset("n", "<C-s>", "<Plug>(coc-range-select)", { silent = true })
--- keyset("x", "<C-s>", "<Plug>(coc-range-select)", { silent = true })
-
 -- Add `:Format` command to format current buffer
-vim.api.nvim_create_user_command("Format", "call CocAction('format')", {})
+vim.api.nvim_create_user_command("CocFormat", "call CocAction('format')", {})
 
 -- " Add `:Fold` command to fold current buffer
 vim.api.nvim_create_user_command("Fold", "call CocAction('fold', <f-args>)", { nargs = "?" })
@@ -164,7 +148,7 @@ keyset("n", "<space>e", ":<C-u>CocList extensions<cr>", opts)
 -- Show commands
 keyset("n", "<space>c", ":Telescope coc commands<cr>", opts)
 -- Find symbol of current document
-keyset("n", "<space>o", ":Telescope coc document_symbols<cr>", opts)
+keyset("n", "<space>ds", ":Telescope coc document_symbols<cr>", opts)
 --keyset("n", "<space>o", ":<C-u>CocList outline<cr>", opts)
 -- Search workspace symbols
 keyset("n", "<space>s", ":<C-u>CocList -I symbols<cr>", opts)
@@ -177,3 +161,4 @@ keyset("n", "<space>k", ":<C-u>CocPrev<cr>", opts)
 keyset("n", "<space>p", ":<C-u>CocList snippets<cr>", opts)
 keyset("n", "<space>ic", ":call CocAction('showIncomingCalls')<cr>", opts)
 keyset("n", "<space>oc", ":call CocAction('showOutgoingCalls')<cr>", opts)
+keyset("n", "<space>ol", ":call CocAction('showOutline')<cr>", opts)
