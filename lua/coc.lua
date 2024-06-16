@@ -58,6 +58,7 @@ function _G.show_docs()
 		vim.api.nvim_command("!" .. vim.o.keywordprg .. " " .. cw)
 	end
 end
+
 keyset("n", "K", "<CMD>lua _G.show_docs()<CR>", { silent = true })
 
 -- Highlight the symbol and its references on a CursorHold event(cursor is idle)
@@ -126,6 +127,10 @@ keyset("v", "<C-d>", 'coc#float#has_scroll() ? coc#float#scroll(1) : "<C-d>"', o
 -- Add `:Format` command to format current buffer
 vim.api.nvim_create_user_command("CocFormat", "call CocAction('format')", {})
 
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = { "*.c", "*.h", "*.ts", "*.java", "*.tsx", "*.css", "*.html", "*.md", "*.jsx", "*.json", "*.lua", "*.sql", "*.xml", "*.ktl" },
+	command = "call CocAction('format')",
+})
 -- " Add `:Fold` command to fold current buffer
 vim.api.nvim_create_user_command("Fold", "call CocAction('fold', <f-args>)", { nargs = "?" })
 

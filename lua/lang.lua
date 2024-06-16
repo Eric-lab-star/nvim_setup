@@ -5,7 +5,7 @@ require("neodev").setup({
 
 local lspconfig = require("lspconfig")
 
-lspconfig.tsserver.setup({})
+-- lspconfig.tsserver.setup({})
 
 lspconfig.sqlls.setup({})
 lspconfig.gopls.setup({})
@@ -50,6 +50,7 @@ vim.g.dart_style_guide = 2
 --add missing imports and remove unused imports for TS
 -- @return boolean
 local function format_ts_imports()
+	lspconfig.tsserver.setup({})
 	local params = vim.lsp.util.make_range_params()
 	params.context = {
 		only = { "source.addMissingImports.ts", "source.removeUnused.ts" },

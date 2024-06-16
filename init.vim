@@ -105,6 +105,7 @@ Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }
 Plug 'github/copilot.vim'
 Plug 'keaising/im-select.nvim'
 Plug 'kevinhwang91/promise-async'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
