@@ -1,3 +1,4 @@
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 require("neodev").setup({
 	-- add any options here, or leave empty to use the default settings
 })
@@ -5,18 +6,33 @@ require("neodev").setup({
 
 local lspconfig = require("lspconfig")
 
--- lspconfig.tsserver.setup({})
+lspconfig.gdscript.setup({
+	capabilities = capabilities,
+})
 
-lspconfig.sqlls.setup({})
-lspconfig.gopls.setup({})
+lspconfig.tsserver.setup({
+	capabilities = capabilities,
+})
+
+lspconfig.sqlls.setup({
+	capabilities = capabilities,
+})
+lspconfig.gopls.setup({
+	capabilities = capabilities,
+})
 lspconfig.gradle_ls.setup({
+	capabilities = capabilities,
 	cmd = {
 		"gradle-language-server",
 	},
 })
---lspconfig.jdtls.setup({})
+
+lspconfig.jdtls.setup({
+	capabilities = capabilities,
+})
 
 lspconfig.lua_ls.setup({
+	capabilities = capabilities,
 	settings = {
 		Lua = {
 			runtime = {

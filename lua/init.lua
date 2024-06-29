@@ -1,14 +1,17 @@
-require("telescopeConfig")
 vim.keymap.set("t", "<Leader><ESC>", "<C-\\><C-n>", { noremap = true })
-vim.keymap.set({ "n", "x", "o" }, "<leader>s", "<Plug>(leap-forward)")
-vim.keymap.set({ "n", "x", "o" }, "<leader>S", "<Plug>(leap-backward)")
-
-require("leap").add_repeat_mappings(";", ",", {
-	relative_directions = true,
-	modes = { "n", "x", "o" },
-})
+vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true })
+vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true })
+vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true })
+vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { noremap = true })
+vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true })
+vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true })
+vim.keymap.set("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true })
+---
+require("telescopeConfig")
+require("flashConfig")
 require("lang")
-require("coc")
+-- require("coc")
 require("treesitterConfig")
 -- require("go").setup()
 require("icon-picker").setup({ disable_legacy_commands = true })
@@ -52,5 +55,13 @@ require("im_select").setup({
 	keep_quiet_on_no_binary = false,
 	async_switch_im = true,
 })
-
 require("helpers")
+require("cmpConfig")
+require("luaSnipConfig")
+require("dapConfig")
+
+--- for godot
+local pipepath = vim.fn.stdpath("cache") .. "/server.pipe"
+if not vim.loop.fs_stat(pipepath) then
+	vim.fn.serverstart(pipepath)
+end

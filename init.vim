@@ -18,6 +18,7 @@
 :set mouse=a
 :set clipboard=unnamed
 :set encoding=UTF-8
+:set inccommand=split
 
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_auto_insert_bullets = 0
@@ -38,12 +39,12 @@ autocmd FileType sql setlocal commentstring=--%s
 "Commands
  command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
  command! -nargs=0 SqlFormat :CocCommand sql.Format
- autocmd ColorScheme * highlight CocHighlightText     ctermfg=Magenta guifg=Magenta
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Plugins
 call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
 " Plug 'ray-x/go.nvim'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'dart-lang/dart-vim-plugin'
@@ -54,6 +55,7 @@ Plug 'ray-x/guihua.lua'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'nvim-treesitter/nvim-treesitter-refactor'
 Plug 'numToStr/Comment.nvim'
 Plug 'https://github.com/lifepillar/pgsql.vim' " PSQL Pluging needs :SQLSetType pgsql.vim
 Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
@@ -63,7 +65,19 @@ Plug 'ziontee113/icon-picker.nvim'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'folke/noice.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+
+" Plug 'hrsh7th/cmp-vsnip'
+" Plug 'hrsh7th/vim-vsnip'
+" follow latest release and install jsregexp.
+Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'} " Replace <CurrentMajor> by the latest released major (first number of latest release)
+Plug 'saadparwaiz1/cmp_luasnip'
+"""""
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 Plug 'akinsho/flutter-tools.nvim'
 Plug 'rcarriga/nvim-notify'
@@ -76,7 +90,7 @@ Plug 'godlygeek/tabular' "for alignment :Tabularize
 Plug 'm00qek/baleia.nvim', { 'tag': 'v1.3.0' }
 Plug 'https://github.com/folke/tokyonight.nvim'
 Plug 'tokorom/vim-swift-format'
-Plug 'https://github.com/ggandor/leap.nvim'
+Plug 'folke/flash.nvim'
 Plug 'https://github.com/tpope/vim-repeat' " repeat plugin command
 Plug 'mhartington/formatter.nvim' "integrated formatter for many languages
 Plug 'ThePrimeagen/harpoon',{'branch': 'harpoon2'}

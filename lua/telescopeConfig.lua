@@ -36,22 +36,22 @@ vim.api.nvim_set_keymap(
 
 --- image preview
 
-require("telescope").load_extension("media_files") -- run Telescope: media_files
+-- require("telescope").load_extension("media_files") -- run Telescope: media_files
 
 --- coc telescope
 
 --
 telescope.setup({
 	extensions = {
-		coc = {
-			theme = "ivy",
-			prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
-		},
-		media_files = {
-			find_cmd = {
-				"rg",
-			},
-		},
+		-- coc = {
+		-- 	theme = "ivy",
+		-- 	prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
+		-- },
+		-- media_files = {
+		-- 	find_cmd = {
+		-- 		"rg",
+		-- 	},
+		-- },
 	},
 	defaults = {
 		-- `hidden = true` is not supported in text grep commands.
@@ -136,14 +136,18 @@ vim.keymap.set("n", "<leader>fo", builtin.oldfiles, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fs", builtin.current_buffer_fuzzy_find, {})
 
+vim.keymap.set("n", "<leader>oc", builtin.lsp_outgoing_calls, { noremap = true })
+vim.keymap.set("n", "<leader>ic", builtin.lsp_incoming_calls, { noremap = true })
+
 vim.keymap.set({ "v", "n" }, "<leader>ccp", function()
 	local actions = require("CopilotChat.actions")
 	require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
 end, { desc = "CopilotChat - Prompt actions" })
 
-vim.keymap.set("n", "<leader>ft", ":Telescope toggleterm_manager<cr>", {})
+vim.keymap.set("n", "<leader>tm", ":Telescope toggleterm_manager<cr>", {})
+
 -- notify
-require("telescope").load_extension("notify")
+-- require("telescope").load_extension("notify")
 -- fzf
-require("telescope").load_extension("fzf")
-require("telescope").load_extension("coc")
+-- require("telescope").load_extension("fzf")
+-- require("telescope").load_extension("coc")

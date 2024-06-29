@@ -1,11 +1,11 @@
 -- Utilities for creating configurations
--- local augroup = vim.api.nvim_create_augroup
--- local autocmd = vim.api.nvim_create_autocmd
--- augroup("__formatter__", { clear = true })
--- autocmd("BufWritePost", {
--- 	group = "__formatter__",
--- 	command = ":FormatWrite",
--- })
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+augroup("__formatter__", { clear = true })
+autocmd("BufWritePost", {
+	group = "__formatter__",
+	command = ":FormatWrite",
+})
 
 -- Formatter
 require("formatter").setup({
@@ -52,16 +52,27 @@ require("formatter").setup({
 				}
 			end,
 		},
-		json = { require("formatter.filetypes.json").prettier },
+		gdscript = {
+			function()
+				return {
+					exe = "gdformat",
+					args = {
+						"-",
+					},
+					stdin = 1,
+				}
+			end,
+		},
 
+		json = { require("formatter.filetypes.json").denofmt },
 		css = { require("formatter.filetypes.css").prettier },
 		html = { require("formatter.filetypes.html").prettier },
 		lua = { require("formatter.filetypes.lua").stylua },
-		javascript = { require("formatter.filetypes.javascript").prettier },
+		javascript = { require("formatter.filetypes.javascript").denofmt },
 		markdown = { require("formatter.filetypes.markdown").prettier },
 		cpp = { require("formatter.filetypes.cpp").clangformat },
 		java = { require("formatter.filetypes.java").clangformat },
-		typescript = { require("formatter.filetypes.typescript").prettier },
-		typescriptreact = { require("formatter.filetypes.typescriptreact").prettier },
+		typescript = { require("formatter.filetypes.typescript").denofmt },
+		typescriptreact = { require("formatter.filetypes.typescriptreact").denofmt },
 	},
 })
