@@ -74,5 +74,6 @@ require("formatter").setup({
 		java = { require("formatter.filetypes.java").clangformat },
 		typescript = { require("formatter.filetypes.typescript").denofmt },
 		typescriptreact = { require("formatter.filetypes.typescriptreact").denofmt },
+		rust = { require("formatter.filetypes.rust").rustfmt },
 	},
 })

@@ -135,6 +135,8 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fo", builtin.oldfiles, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fs", builtin.current_buffer_fuzzy_find, {})
+vim.keymap.set("n", "<leader>ma", builtin.marks, {})
+vim.keymap.set("n", "<leader>tr", builtin.treesitter, {})
 
 vim.keymap.set("n", "<leader>oc", builtin.lsp_outgoing_calls, { noremap = true })
 vim.keymap.set("n", "<leader>ic", builtin.lsp_incoming_calls, { noremap = true })

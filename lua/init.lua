@@ -7,6 +7,7 @@ vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = t
 vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true })
 vim.keymap.set("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true })
+
 ---
 require("telescopeConfig")
 require("flashConfig")
@@ -57,6 +58,7 @@ require("im_select").setup({
 })
 require("helpers")
 require("cmpConfig")
+require("markConfig")
 require("luaSnipConfig")
 require("dapConfig")
 

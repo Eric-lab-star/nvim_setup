@@ -10,6 +10,10 @@ lspconfig.gdscript.setup({
 	capabilities = capabilities,
 })
 
+lspconfig.rust_analyzer.setup({
+	capabilities = capabilities,
+})
+
 lspconfig.tsserver.setup({
 	capabilities = capabilities,
 })
