@@ -20,6 +20,7 @@
 :set encoding=UTF-8
 :set inccommand=split
 
+
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_strikethrough = 1
@@ -44,8 +45,6 @@ autocmd FileType sql setlocal commentstring=--%s
 "Plugins
 call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-
-" Plug 'ray-x/go.nvim'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'lewis6991/gitsigns.nvim'
@@ -65,19 +64,13 @@ Plug 'ziontee113/icon-picker.nvim'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'folke/noice.nvim'
 Plug 'nvim-lua/plenary.nvim'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
-
-" Plug 'hrsh7th/cmp-vsnip'
-" Plug 'hrsh7th/vim-vsnip'
-" follow latest release and install jsregexp.
 Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'} " Replace <CurrentMajor> by the latest released major (first number of latest release)
 Plug 'saadparwaiz1/cmp_luasnip'
-"""""
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 Plug 'akinsho/flutter-tools.nvim'
 Plug 'rcarriga/nvim-notify'
@@ -99,19 +92,17 @@ Plug 'https://github.com/mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'theHamsta/nvim-dap-virtual-text'
 Plug 'https://github.com/nvim-telescope/telescope-dap.nvim'
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 Plug 'edolphin-ydf/goimpl.nvim',
 Plug 'folke/neodev.nvim'
 Plug 'stevearc/oil.nvim'
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 Plug 'kkharji/sqlite.lua'
 Plug 'AckslD/nvim-neoclip.lua',
-Plug 'nvim-telescope/telescope-media-files.nvim'
-Plug 'fannheyward/telescope-coc.nvim'
 Plug 'ryanmsnyder/toggleterm-manager.nvim',
 Plug 'nvim-neotest/nvim-nio'
 Plug 'folke/todo-comments.nvim'
 Plug 'MeanderingProgrammer/markdown.nvim',
+Plug 'chentoast/marks.nvim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'zbirenbaum/copilot.lua'
@@ -123,10 +114,23 @@ Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 "for DBUI
 let g:dbs =[
 \ {'name': 'go_mysql', 'url':'mysql://kyungsubkim@localhost:3306/goDB'  },
 \ {'name': 'game_mysql', 'url': 'mysql://kyungsubkim@localhost:3306/game'},
 \]
+
 let g:db_ui_save_location = '/Users/kyungsubkim/Programming/SQL'
+
+
+"""key bindings""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
 :lua require('init')
+
+
+
+
+
+

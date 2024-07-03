@@ -147,9 +147,3 @@ vim.keymap.set({ "v", "n" }, "<leader>ccp", function()
 end, { desc = "CopilotChat - Prompt actions" })
 
 vim.keymap.set("n", "<leader>tm", ":Telescope toggleterm_manager<cr>", {})
-
--- notify
--- require("telescope").load_extension("notify")
--- fzf
--- require("telescope").load_extension("fzf")
--- require("telescope").load_extension("coc")
