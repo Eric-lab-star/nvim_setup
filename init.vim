@@ -4,7 +4,6 @@
 :set incsearch
 :set completeopt-=preview " For No Previews
 :set nocompatible
-:set conceallevel=2
 :set number
 :set nobackup
 :set nowb
@@ -21,14 +20,8 @@
 :set inccommand=split
 
 
-let g:vim_markdown_new_list_item_indent = 2
-let g:vim_markdown_auto_insert_bullets = 0
-let g:vim_markdown_strikethrough = 1
-let g:vim_markdown_autowrite = 1
-let g:vim_markdown_no_extensions_in_markdown = 1
-let g:vim_markdown_follow_anchor = 1
 
-nmap ge <Plug>Markdown_EditUrlUnderCursor
+
 filetype plugin on
 syntax on
 augroup filetype
@@ -37,9 +30,6 @@ augroup END
 autocmd FileType sql setlocal commentstring=--%s
 
 
-"Commands
- command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
- command! -nargs=0 SqlFormat :CocCommand sql.Format
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Plugins
@@ -87,7 +77,6 @@ Plug 'folke/flash.nvim'
 Plug 'https://github.com/tpope/vim-repeat' " repeat plugin command
 Plug 'mhartington/formatter.nvim' "integrated formatter for many languages
 Plug 'ThePrimeagen/harpoon',{'branch': 'harpoon2'}
-Plug 'preservim/vim-markdown', {'branch': 'master'}
 Plug 'https://github.com/mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'theHamsta/nvim-dap-virtual-text'
@@ -97,13 +86,12 @@ Plug 'folke/neodev.nvim'
 Plug 'stevearc/oil.nvim'
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 Plug 'kkharji/sqlite.lua'
+Plug 'nvim-telescope/telescope-cheat.nvim',
 Plug 'AckslD/nvim-neoclip.lua',
 Plug 'ryanmsnyder/toggleterm-manager.nvim',
 Plug 'nvim-neotest/nvim-nio'
 Plug 'folke/todo-comments.nvim'
-Plug 'MeanderingProgrammer/markdown.nvim',
 Plug 'chentoast/marks.nvim'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'zbirenbaum/copilot.lua'
 Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }
@@ -111,6 +99,11 @@ Plug 'github/copilot.vim'
 Plug 'keaising/im-select.nvim'
 Plug 'kevinhwang91/promise-async'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+"""""Markdown plugins"""""""""
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' } " Markdown Preview in Browser
+
+"""wakatime
+Plug 'wakatime/vim-wakatime'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

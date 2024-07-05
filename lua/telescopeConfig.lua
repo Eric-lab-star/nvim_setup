@@ -23,9 +23,10 @@ table.insert(vimgrep_arguments, "!**/*.png")
 require("telescope").load_extension("noice")
 -- dap
 require("telescope").load_extension("dap")
-
 -- goimpl
 require("telescope").load_extension("goimpl")
+
+require("telescope").load_extension("cheat")
 
 vim.api.nvim_set_keymap(
 	"n",

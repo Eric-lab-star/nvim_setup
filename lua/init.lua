@@ -31,8 +31,6 @@ require("nvim-surround").setup()
 require("tokyonightConfig")
 require("formatterConfig")
 require("harpoonconfig")
-
-require("render-markdown").setup({})
 require("dapui").setup()
 require("oilConfig")
 require("toggleTermconfig")

@@ -24,12 +24,12 @@ end
 vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
 
 require("toggleterm").setup({
-	size = 20,
+	size = 25,
 	open_mapping = [[<c-t>]],
 	winbar = {
 		enabled = true,
-		name_formatter = function(term) --  term: Terminal
-			return term.name
+		name_formatter = function(term)
+			return string.format("%d:%s", term.id, term:_display_name())
 		end,
 	},
 })

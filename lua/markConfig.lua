@@ -26,8 +26,8 @@ require("marks").setup({
 	-- across multiple buffers. default sign is '!@#$%^&*()' (from 0 to 9), and
 	-- default virt_text is "".
 	bookmark_0 = {
-		sign = "⚑",
-		virt_text = "hello world",
+		sign = "",
+		virt_text = "warning",
 		-- explicitly prompt for a virtual line annotation when setting a bookmark from this group.
 		-- defaults to false.
 		annotate = false,

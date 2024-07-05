@@ -6,6 +6,9 @@ require("neodev").setup({
 
 local lspconfig = require("lspconfig")
 
+lspconfig.kotlin_language_server.setup({
+	capabilities = capabilities,
+})
 lspconfig.gdscript.setup({
 	capabilities = capabilities,
 })
