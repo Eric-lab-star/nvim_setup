@@ -4,7 +4,7 @@ local harpoon = require("harpoon")
 harpoon:setup()
 -- REQUIRED
 
-vim.keymap.set("n", "<leader>h", function()
+vim.keymap.set("n", "<M-s>", function()
 	harpoon:list():add()
 end)
 
@@ -24,7 +24,7 @@ end)
 -- vim.keymap.set("n", "<C-s>", function()
 -- 	harpoon:list():select(4)
 -- end)
-
+--
 -- Toggle previous & next buffers stored within Harpoon list
 
 vim.keymap.set("n", "<C-S-P>", function()

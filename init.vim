@@ -86,7 +86,6 @@ Plug 'folke/neodev.nvim'
 Plug 'stevearc/oil.nvim'
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 Plug 'kkharji/sqlite.lua'
-Plug 'nvim-telescope/telescope-cheat.nvim',
 Plug 'AckslD/nvim-neoclip.lua',
 Plug 'ryanmsnyder/toggleterm-manager.nvim',
 Plug 'nvim-neotest/nvim-nio'

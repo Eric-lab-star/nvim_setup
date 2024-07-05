@@ -5,6 +5,5 @@ class Hello {
 
   sayHello() {
     console.log(this.message);
-
   }
 }

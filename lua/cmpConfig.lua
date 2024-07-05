@@ -9,8 +9,7 @@ cmp.setup({
 	},
 
 	mapping = {
-		["<C-Space>"] = cmp.mapping.complete(),
-		["<C-e>"] = cmp.mapping.close(),
+		["<C-e>"] = cmp.mapping.abort(),
 		["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
 		["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
 		["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.

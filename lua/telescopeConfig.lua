@@ -26,7 +26,6 @@ require("telescope").load_extension("dap")
 -- goimpl
 require("telescope").load_extension("goimpl")
 
-require("telescope").load_extension("cheat")
 
 vim.api.nvim_set_keymap(
 	"n",
