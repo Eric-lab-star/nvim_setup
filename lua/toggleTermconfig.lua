@@ -24,7 +24,7 @@ end
 vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
 
 require("toggleterm").setup({
-	size = 25,
+	size = 15,
 	open_mapping = [[<c-t>]],
 	winbar = {
 		enabled = true,

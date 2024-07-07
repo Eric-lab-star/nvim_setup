@@ -26,7 +26,6 @@ require("telescope").load_extension("dap")
 -- goimpl
 require("telescope").load_extension("goimpl")
 
-
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader>im",
@@ -137,9 +136,9 @@ vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fs", builtin.current_buffer_fuzzy_find, {})
 vim.keymap.set("n", "<leader>ma", builtin.marks, {})
 vim.keymap.set("n", "<leader>tr", builtin.treesitter, {})
-
 vim.keymap.set("n", "<leader>oc", builtin.lsp_outgoing_calls, { noremap = true })
 vim.keymap.set("n", "<leader>ic", builtin.lsp_incoming_calls, { noremap = true })
+vim.keymap.set("n", "<leader>wd", builtin.diagnostics, { noremap = true })
 
 vim.keymap.set({ "v", "n" }, "<leader>ccp", function()
 	local actions = require("CopilotChat.actions")
