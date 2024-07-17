@@ -67,9 +67,7 @@ Plug 'rcarriga/nvim-notify'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'https://github.com/tpope/vim-dadbod'
 Plug 'https://github.com/kristijanhusak/vim-dadbod-ui'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'https://github.com/kylechui/nvim-surround'
-Plug 'godlygeek/tabular' "for alignment :Tabularize
 Plug 'm00qek/baleia.nvim', { 'tag': 'v1.3.0' }
 Plug 'https://github.com/folke/tokyonight.nvim'
 Plug 'tokorom/vim-swift-format'
@@ -98,6 +96,8 @@ Plug 'github/copilot.vim'
 Plug 'keaising/im-select.nvim'
 Plug 'kevinhwang91/promise-async'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+Plug 'mfussenegger/nvim-jdtls'
+
 """""Markdown plugins"""""""""
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' } " Markdown Preview in Browser
 
@@ -120,9 +120,4 @@ let g:db_ui_save_location = '/Users/kyungsubkim/Programming/SQL'
 
 
 :lua require('init')
-
-
-
-
-
 

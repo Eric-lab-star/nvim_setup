@@ -44,9 +44,9 @@ lspconfig.gradle_ls.setup({
 	},
 })
 
-lspconfig.jdtls.setup({
-	capabilities = capabilities,
-})
+-- lspconfig.jdtls.setup({
+-- 	capabilities = capabilities,
+-- })
 
 lspconfig.lua_ls.setup({
 	capabilities = capabilities,

@@ -64,7 +64,7 @@ require("formatter").setup({
 			end,
 		},
 
-		json = { require("formatter.filetypes.json").denofmt },
+		json = { require("formatter.filetypes.json").prettier },
 		css = { require("formatter.filetypes.css").prettier },
 		html = { require("formatter.filetypes.html").prettier },
 		lua = { require("formatter.filetypes.lua").stylua },
