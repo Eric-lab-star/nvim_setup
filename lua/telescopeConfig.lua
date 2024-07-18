@@ -18,7 +18,11 @@ table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!Flutter/**/ios/*")
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/*.png")
+table.insert(vimgrep_arguments, "--glob")
+table.insert(vimgrep_arguments, "!**/.gradle/**")
 
+-- snippets
+require("telescope").load_extension("luasnip")
 -- noice
 require("telescope").load_extension("noice")
 -- dap
@@ -92,6 +96,8 @@ telescope.setup({
 				"!**/.dart_tool/*",
 				"--glob",
 				"!**/*.png",
+				"--glob",
+				"!**/.gradle/**",
 			},
 		},
 		oldfiles = {},
@@ -123,6 +129,8 @@ telescope.setup({
 					"!**/.dart_tool/*",
 					"--glob",
 					"!**/*.png",
+					"--glob",
+					"!**/.gradle/**",
 				},
 			},
 		},
@@ -146,3 +154,5 @@ vim.keymap.set({ "v", "n" }, "<leader>ccp", function()
 end, { desc = "CopilotChat - Prompt actions" })
 
 vim.keymap.set("n", "<leader>tm", ":Telescope toggleterm_manager<cr>", {})
+
+vim.keymap.set("n", "<leader>nn", ":Telescope luasnip", {})

@@ -1,18 +1,34 @@
 vim.keymap.set("t", "<Leader><ESC>", "<C-\\><C-n>", { noremap = true })
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
+
+vim.keymap.set("n", "<leader>s", "<Plug>(leap)")
+vim.keymap.set("n", "<leader>S", "<Plug>(leap-from-window)")
+vim.keymap.set({ "x", "o" }, "<leader>s", "<Plug>(leap-forward)")
+vim.keymap.set({ "x", "o" }, "<leader>S", "<Plug>(leap-backward)")
+
 ---
+require("leap.user").set_repeat_keys("<enter>", "<backspace>")
+require("flash").setup({
+	modes = {
+		char = {
+			enabled = true,
+			jump_labels = true,
+		},
+	},
+})
+
+require("nvim-tree").setup()
 require("telescopeConfig")
-require("flashConfig")
 require("lang")
--- require("coc")
 require("treesitterConfig")
--- require("go").setup()
 require("icon-picker").setup({ disable_legacy_commands = true })
 require("flutter-tools").setup({})
 require("todo-comments").setup()
 require("noiceConfig")
 require("notify").setup({
-	-- background_colour = "#000000",
 	max_width = 100,
 	render = "wrapped-compact",
 	timeout = 1000,
@@ -46,7 +62,7 @@ require("im_select").setup({
 	keep_quiet_on_no_binary = false,
 	async_switch_im = true,
 })
-require("helpers")
+-- require("helpers")
 require("cmpConfig")
 require("markConfig")
 require("luaSnipConfig")

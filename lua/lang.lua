@@ -6,13 +6,9 @@ vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = t
 vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true })
 vim.keymap.set("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true })
-vim.keymap.set("n", "M-d", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true })
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-require("neodev").setup({
-	-- add any options here, or leave empty to use the default settings
-})
--- Setup language servers.
+require("neodev").setup({})
 
 local lspconfig = require("lspconfig")
 
@@ -44,31 +40,20 @@ lspconfig.gradle_ls.setup({
 	},
 })
 
--- lspconfig.jdtls.setup({
--- 	capabilities = capabilities,
--- })
-
 lspconfig.lua_ls.setup({
 	capabilities = capabilities,
 	settings = {
 		Lua = {
 			runtime = {
-				-- Tell the language server which version of Lua you're using
-				-- (most likely LuaJIT in the case of Neovim)
 				version = "LuaJIT",
 			},
 			diagnostics = {
-				-- Get the language server to recognize the `vim` global
 				globals = {
 					"vim",
 					"require",
 				},
 			},
-			workspace = {
-
-				-- Make the server aware of Neovim runtime files
-			},
-			-- Do not send telemetry data containing a randomized but unique identifier
+			workspace = {},
 			telemetry = {
 				enable = false,
 			},
@@ -80,8 +65,6 @@ vim.g.dart_format_on_save = true
 vim.g.dart_html_in_string = true
 vim.g.dart_style_guide = 2
 
---add missing imports and remove unused imports for TS
--- @return boolean
 local function format_ts_imports()
 	lspconfig.tsserver.setup({})
 	local params = vim.lsp.util.make_range_params()

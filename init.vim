@@ -71,7 +71,6 @@ Plug 'https://github.com/kylechui/nvim-surround'
 Plug 'm00qek/baleia.nvim', { 'tag': 'v1.3.0' }
 Plug 'https://github.com/folke/tokyonight.nvim'
 Plug 'tokorom/vim-swift-format'
-Plug 'folke/flash.nvim'
 Plug 'https://github.com/tpope/vim-repeat' " repeat plugin command
 Plug 'mhartington/formatter.nvim' "integrated formatter for many languages
 Plug 'ThePrimeagen/harpoon',{'branch': 'harpoon2'}
@@ -97,6 +96,10 @@ Plug 'keaising/im-select.nvim'
 Plug 'kevinhwang91/promise-async'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'mfussenegger/nvim-jdtls'
+Plug 'benfowler/telescope-luasnip.nvim'
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'https://github.com/ggandor/leap.nvim'
+Plug 'folke/flash.nvim'
 
 """""Markdown plugins"""""""""
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' } " Markdown Preview in Browser
@@ -106,7 +109,6 @@ Plug 'wakatime/vim-wakatime'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 "for DBUI
 let g:dbs =[
 \ {'name': 'go_mysql', 'url':'mysql://kyungsubkim@localhost:3306/goDB'  },
