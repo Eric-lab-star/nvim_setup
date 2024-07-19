@@ -21,6 +21,8 @@ table.insert(vimgrep_arguments, "!**/*.png")
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/.gradle/**")
 
+--bookmarks
+require("telescope").load_extension("bookmarks")
 -- snippets
 require("telescope").load_extension("luasnip")
 -- noice
@@ -45,17 +47,7 @@ vim.api.nvim_set_keymap(
 
 --
 telescope.setup({
-	extensions = {
-		-- coc = {
-		-- 	theme = "ivy",
-		-- 	prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
-		-- },
-		-- media_files = {
-		-- 	find_cmd = {
-		-- 		"rg",
-		-- 	},
-		-- },
-	},
+	extensions = {},
 	defaults = {
 		-- `hidden = true` is not supported in text grep commands.
 		vimgrep_arguments = vimgrep_arguments,
@@ -141,8 +133,8 @@ vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fo", builtin.oldfiles, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-vim.keymap.set("n", "<leader>fs", builtin.current_buffer_fuzzy_find, {})
-vim.keymap.set("n", "<leader>ma", builtin.marks, {})
+vim.keymap.set("n", "<leader>fs", builtin.current_buffer_fuzzy_find, {}) -- search in current buffer
+vim.keymap.set("n", "<leader>ma", builtin.marks, {}) -- list marks
 vim.keymap.set("n", "<leader>tr", builtin.treesitter, {})
 vim.keymap.set("n", "<leader>oc", builtin.lsp_outgoing_calls, { noremap = true })
 vim.keymap.set("n", "<leader>ic", builtin.lsp_incoming_calls, { noremap = true })
@@ -155,4 +147,5 @@ end, { desc = "CopilotChat - Prompt actions" })
 
 vim.keymap.set("n", "<leader>tm", ":Telescope toggleterm_manager<cr>", {})
 
-vim.keymap.set("n", "<leader>nn", ":Telescope luasnip", {})
+vim.keymap.set("n", "<leader>nn", "<cmd>Telescope luasnip<cr>", {})
+vim.keymap.set("n", "ml", "<cmd>Telescope bookmarks list<cr>", {})

@@ -1,9 +1,8 @@
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-local workspace_dir = "/Users/kyungsubkim/Programming/java" .. project_name
+local workspace_dir = "/Users/kyungsubkim/nvimJava" .. project_name
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local config = {
 	cmd = {
-
 		"java", -- or '/path/to/java17_or_newer/bin/java'
 		"-Declipse.application=org.eclipse.jdt.ls.core.id1",
 		"-Dosgi.bundles.defaultStartLevel=4",
@@ -25,6 +24,13 @@ local config = {
 
 		"-data",
 		workspace_dir,
+	},
+	settings = {
+		java = {
+			ls = {
+				vmargs = "-Xmx1G",
+			},
+		},
 	},
 
 	root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew" }),

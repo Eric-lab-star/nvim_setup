@@ -100,6 +100,7 @@ Plug 'benfowler/telescope-luasnip.nvim'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'https://github.com/ggandor/leap.nvim'
 Plug 'folke/flash.nvim'
+Plug 'tomasky/bookmarks.nvim'
 
 """""Markdown plugins"""""""""
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' } " Markdown Preview in Browser

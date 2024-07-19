@@ -24,7 +24,13 @@ end
 vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
 
 require("toggleterm").setup({
-	size = 15,
+	size = function(term)
+		if term.direction == "horizontal" then
+			return 15
+		elseif term.direction == "vertical" then
+			return vim.o.columns * 0.4
+		end
+	end,
 	open_mapping = [[<c-t>]],
 	winbar = {
 		enabled = true,
@@ -32,4 +38,5 @@ require("toggleterm").setup({
 			return string.format("%d:%s", term.id, term:_display_name())
 		end,
 	},
+	direction = "vertical",
 })
