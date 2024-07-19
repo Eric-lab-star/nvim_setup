@@ -66,7 +66,15 @@ require("formatter").setup({
 			end,
 		},
 
-		json = { require("formatter.filetypes.json").prettier },
+		json = {
+			function()
+				return {
+					exe = "clang-format",
+					args = { "--style=Google", "--assume-filename=.json" },
+					stdin = true,
+				}
+			end,
+		},
 		css = { require("formatter.filetypes.css").prettier },
 		html = { require("formatter.filetypes.html").prettier },
 		lua = { require("formatter.filetypes.lua").stylua },
