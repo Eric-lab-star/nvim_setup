@@ -104,7 +104,6 @@ Plug 'tomasky/bookmarks.nvim'
 
 """""Markdown plugins"""""""""
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' } " Markdown Preview in Browser
-
 """wakatime
 Plug 'wakatime/vim-wakatime'
 call plug#end()

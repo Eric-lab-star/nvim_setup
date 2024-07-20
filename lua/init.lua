@@ -1,5 +1,4 @@
 vim.keymap.set("t", "<Leader><ESC>", "<C-\\><C-n>", { noremap = true })
-
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
@@ -60,7 +59,7 @@ require("nvim-surround").setup()
 require("tokyonightConfig")
 require("formatterConfig")
 require("harpoonconfig")
-require("dapui").setup()
+-- require("dapui").setup()
 require("oilConfig")
 require("toggleTermconfig")
 require("neoclipConfig")
@@ -88,6 +87,7 @@ require("cmpConfig")
 -- require("markConfig")
 require("luaSnipConfig")
 require("dapConfig")
+-- require("nvim-dap-virtual-text").setup()
 
 --- for godot
 local pipepath = vim.fn.stdpath("cache") .. "/server.pipe"

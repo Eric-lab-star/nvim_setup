@@ -1,5 +1,3 @@
-vim.cmd([[colorscheme tokyonight-night]])
-
 require("tokyonight").setup({
 	-- your configuration comes here
 	-- or leave it empty to use the default settings
@@ -27,11 +25,23 @@ require("tokyonight").setup({
 	--- You can override specific color groups to use other groups or a hex color
 	--- function will be called with a ColorScheme table
 	---@param colors ColorScheme
-	on_colors = function(colors) end,
+	on_colors = function(colors)
+		colors.comment = "#808B96"
+		colors.black = "#808B96"
+	end,
 
 	--- You can override specific highlights to use other groups or a hex color
 	--- function will be called with a Highlights and ColorScheme table
 	---@param highlights Highlights
 	---@param colors ColorScheme
-	on_highlights = function(highlights, colors) end,
+	on_highlights = function(highlights, colors)
+		highlights.DiagnosticUnnecessary = {
+			fg = "#646E9E",
+		}
+		highlights.Visual = {
+			bg = "#707EA8",
+		}
+	end,
 })
+
+vim.cmd([[colorscheme tokyonight-night]])

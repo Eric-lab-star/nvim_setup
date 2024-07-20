@@ -33,7 +33,17 @@ local config = {
 		},
 	},
 
+	init_options = {
+		bundles = {
+			vim.fn.glob(
+				"/Users/kyungsubkim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar",
+				1
+			),
+		},
+	},
+
 	root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew" }),
 	capabilities = capabilities,
 }
+
 require("jdtls").start_or_attach(config)
