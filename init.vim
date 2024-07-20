@@ -73,7 +73,7 @@ Plug 'https://github.com/folke/tokyonight.nvim'
 Plug 'tokorom/vim-swift-format'
 Plug 'https://github.com/tpope/vim-repeat' " repeat plugin command
 Plug 'mhartington/formatter.nvim' "integrated formatter for many languages
-Plug 'ThePrimeagen/harpoon',{'branch': 'harpoon2'}
+" Plug 'ThePrimeagen/harpoon',{'branch': 'harpoon2'}
 Plug 'https://github.com/mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'theHamsta/nvim-dap-virtual-text'

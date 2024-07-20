@@ -7,4 +7,10 @@ require("CopilotChat").setup({
 			insert = "",
 		},
 	},
+
+	window = {
+		layout = "vertical",
+		width = 0.3,
+		height = 1,
+	},
 })
