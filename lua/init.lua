@@ -1,12 +1,13 @@
-vim.keymap.set("t", "<Leader><ESC>", "<C-\\><C-n>", { noremap = true })
+local key = vim.keymap
+key.set("t", "<Leader><ESC>", "<C-\\><C-n>", { noremap = true })
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
-
-vim.keymap.set("n", "<leader>s", "<Plug>(leap)")
-vim.keymap.set("n", "<leader>S", "<Plug>(leap-from-window)")
-vim.keymap.set({ "x", "o" }, "<leader>s", "<Plug>(leap-forward)")
-vim.keymap.set({ "x", "o" }, "<leader>S", "<Plug>(leap-backward)")
+key.set("n", "<leader>s", "<Plug>(leap)")
+key.set("n", "<leader>S", "<Plug>(leap-from-window)")
+key.set({ "x", "o" }, "<leader>s", "<Plug>(leap-forward)")
+key.set({ "x", "o" }, "<leader>S", "<Plug>(leap-backward)")
+key.set("n", "<leader><leader>r", "<cmd>luafile ~/.config/nvim/lua/init.lua<CR>")
 
 ---
 require("leap.user").set_repeat_keys("<S-Enter>", "<S-Backspace>")
@@ -24,14 +25,15 @@ require("bookmarks").setup({
 
 	save_file = vim.fn.expand("$HOME/.bookmarks"), -- bookmarks save file path
 	keywords = {
-		["@t"] = " ", -- mark annotation startswith @t ,signs this icon as `Todo`
+		["@t"] = " ", -- mark annotation startswith @t ,signs this icon as `Todo`
 		["@w"] = " ", -- mark annotation startswith @w ,signs this icon as `Warn`
 		["@f"] = "⛏ ", -- mark annotation startswith @f ,signs this icon as `Fix`
 		["@n"] = " ", -- mark annotation startswith @n ,signs this icon as `Note`
+		["@p"] = "󰤱 ", -- mark annotation startswith @p ,signs this icon as `pin`
 	},
 	on_attach = function(bufnr)
 		local bm = require("bookmarks")
-		local map = vim.keymap.set
+		local map = key.set
 		map("n", "mm", bm.bookmark_toggle) -- add or remove bookmark at current line
 		map("n", "mi", bm.bookmark_ann) -- add or edit mark annotation at current line
 		map("n", "mc", bm.bookmark_clean) -- clean all marks in local buffer

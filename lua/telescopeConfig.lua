@@ -21,17 +21,6 @@ table.insert(vimgrep_arguments, "!**/*.png")
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/.gradle/**")
 
---bookmarks
-require("telescope").load_extension("bookmarks")
--- snippets
-require("telescope").load_extension("luasnip")
--- noice
-require("telescope").load_extension("noice")
--- dap
-require("telescope").load_extension("dap")
--- goimpl
-require("telescope").load_extension("goimpl")
-
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader>im",
@@ -39,13 +28,6 @@ vim.api.nvim_set_keymap(
 	{ noremap = true, silent = true }
 )
 
---- image preview
-
--- require("telescope").load_extension("media_files") -- run Telescope: media_files
-
---- coc telescope
-
---
 telescope.setup({
 	extensions = {},
 	defaults = {
@@ -128,6 +110,17 @@ telescope.setup({
 		},
 	},
 })
+
+--bookmarks
+require("telescope").load_extension("bookmarks")
+-- snippets
+require("telescope").load_extension("luasnip")
+-- noice
+require("telescope").load_extension("noice")
+-- dap
+require("telescope").load_extension("dap")
+-- goimpl
+require("telescope").load_extension("goimpl")
 
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
