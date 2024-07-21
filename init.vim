@@ -18,7 +18,7 @@
 :set clipboard=unnamed
 :set encoding=UTF-8
 :set inccommand=split
-:set shada=%,'1000,f0,n~/.config/nvim/shada
+:set shada=%,<1000,'50,f0,n~/.config/nvim/shada
 
 
 
@@ -88,7 +88,7 @@ Plug 'ryanmsnyder/toggleterm-manager.nvim',
 Plug 'nvim-neotest/nvim-nio'
 Plug 'folke/todo-comments.nvim'
 Plug 'chentoast/marks.nvim'
-Plug 'lukas-reineke/indent-blankline.nvim'
+" Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'zbirenbaum/copilot.lua'
 Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }
 Plug 'github/copilot.vim'
@@ -105,6 +105,8 @@ Plug 'folke/flash.nvim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' } " Markdown Preview in Browser
 """wakatime
 Plug 'wakatime/vim-wakatime'
+"""tab align"""
+Plug 'https://github.com/godlygeek/tabular'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

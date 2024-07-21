@@ -8,6 +8,8 @@ key.set("n", "<leader>S", "<Plug>(leap-from-window)")
 key.set({ "x", "o" }, "<leader>s", "<Plug>(leap-forward)")
 key.set({ "x", "o" }, "<leader>S", "<Plug>(leap-backward)")
 key.set("n", "<leader><leader>r", "<cmd>luafile ~/.config/nvim/lua/init.lua<CR>")
+key.set("n", "<S-C-P>", "<cmd>bp<CR>")
+key.set("n", "<S-C-N>", "<cmd>bn<CR>")
 
 ---
 require("leap.user").set_repeat_keys("<S-Enter>", "<S-Backspace>")
@@ -48,7 +50,6 @@ require("gitsignsConfig")
 require("Comment").setup({
 	pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
 })
-require("ibl").setup()
 require("copilot").setup({})
 require("copilotChatConfig")
 

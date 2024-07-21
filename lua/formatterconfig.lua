@@ -79,7 +79,7 @@ require("formatter").setup({
 		html = { require("formatter.filetypes.html").prettier },
 		lua = { require("formatter.filetypes.lua").stylua },
 		javascript = { require("formatter.filetypes.javascript").denofmt },
-		markdown = { require("formatter.filetypes.markdown").prettier },
+		-- markdown = { require("formatter.filetypes.markdown").prettier },
 		cpp = { require("formatter.filetypes.cpp").clangformat },
 		-- java = { require("formatter.filetypes.java").google_java_format },
 		typescript = { require("formatter.filetypes.typescript").denofmt },
