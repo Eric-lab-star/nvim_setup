@@ -21,27 +21,6 @@ require("flash").setup({
 	},
 })
 
-require("bookmarks").setup({
-
-	save_file = vim.fn.expand("$HOME/.bookmarks"), -- bookmarks save file path
-	keywords = {
-		["@t"] = " ", -- mark annotation startswith @t ,signs this icon as `Todo`
-		["@w"] = " ", -- mark annotation startswith @w ,signs this icon as `Warn`
-		["@f"] = "⛏ ", -- mark annotation startswith @f ,signs this icon as `Fix`
-		["@n"] = " ", -- mark annotation startswith @n ,signs this icon as `Note`
-		["@p"] = "󰤱 ", -- mark annotation startswith @p ,signs this icon as `pin`
-	},
-	on_attach = function(bufnr)
-		local bm = require("bookmarks")
-		local map = key.set
-		map("n", "mm", bm.bookmark_toggle) -- add or remove bookmark at current line
-		map("n", "mi", bm.bookmark_ann) -- add or edit mark annotation at current line
-		map("n", "mc", bm.bookmark_clean) -- clean all marks in local buffer
-		map("n", "mn", bm.bookmark_next) -- jump to next mark in local buffer
-		map("n", "mp", bm.bookmark_prev) -- jump to previous mark in local buffer
-		map("n", "mx", bm.bookmark_clear_all) -- removes all bookmarks
-	end,
-})
 require("nvim-tree").setup()
 require("telescopeConfig")
 require("lang")
@@ -86,7 +65,7 @@ require("im_select").setup({
 })
 -- require("helpers")
 require("cmpConfig")
--- require("markConfig")
+require("markConfig")
 require("luaSnipConfig")
 require("dapConfig")
 -- require("nvim-dap-virtual-text").setup()

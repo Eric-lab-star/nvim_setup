@@ -81,7 +81,7 @@ require("formatter").setup({
 		javascript = { require("formatter.filetypes.javascript").denofmt },
 		markdown = { require("formatter.filetypes.markdown").prettier },
 		cpp = { require("formatter.filetypes.cpp").clangformat },
-		java = { require("formatter.filetypes.java").google_java_format },
+		-- java = { require("formatter.filetypes.java").google_java_format },
 		typescript = { require("formatter.filetypes.typescript").denofmt },
 		typescriptreact = { require("formatter.filetypes.typescriptreact").denofmt },
 		rust = { require("formatter.filetypes.rust").rustfmt },

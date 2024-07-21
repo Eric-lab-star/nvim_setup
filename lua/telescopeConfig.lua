@@ -111,8 +111,6 @@ telescope.setup({
 	},
 })
 
---bookmarks
-require("telescope").load_extension("bookmarks")
 -- snippets
 require("telescope").load_extension("luasnip")
 -- noice
