@@ -10,10 +10,10 @@
 :set noswapfile
 :set relativenumber
 :set autoindent
-:set tabstop=2
-:set shiftwidth=2
 :set smarttab
-:set softtabstop=2
+:set softtabstop=4
+:set shiftwidth=4
+:set noexpandtab
 :set mouse=a
 :set clipboard=unnamed
 :set encoding=UTF-8
@@ -113,13 +113,6 @@ Plug 'romgrk/barbar.nvim'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"for DBUI
-let g:dbs =[
-\ {'name': 'go_mysql', 'url':'mysql://kyungsubkim@localhost:3306/goDB'  },
-\ {'name': 'game_mysql', 'url': 'mysql://kyungsubkim@localhost:3306/game'},
-\]
-
-let g:db_ui_save_location = '/Users/kyungsubkim/Programming/SQL'
 
 
 """key bindings""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

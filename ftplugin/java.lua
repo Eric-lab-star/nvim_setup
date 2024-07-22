@@ -1,5 +1,5 @@
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-local workspace_dir = "/Users/kyungsubkim/nvimJava" .. project_name
+local workspace_dir = "/Users/kyungsubkim/nvimJava/" .. project_name
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local config = {
 	cmd = {
