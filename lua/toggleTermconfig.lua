@@ -38,5 +38,5 @@ require("toggleterm").setup({
 			return string.format("%d:%s", term.id, term:_display_name())
 		end,
 	},
-	direction = "vertical",
+	direction = "horizontal",
 })

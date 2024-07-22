@@ -1,15 +1,18 @@
 local key = vim.keymap
+local opts = { noremap = true, silent = true }
 key.set("t", "<Leader><ESC>", "<C-\\><C-n>", { noremap = true })
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
-key.set("n", "<leader>s", "<Plug>(leap)")
-key.set("n", "<leader>S", "<Plug>(leap-from-window)")
-key.set({ "x", "o" }, "<leader>s", "<Plug>(leap-forward)")
-key.set({ "x", "o" }, "<leader>S", "<Plug>(leap-backward)")
-key.set("n", "<leader><leader>r", "<cmd>luafile ~/.config/nvim/lua/init.lua<CR>")
-key.set("n", "<S-C-P>", "<cmd>bp<CR>")
-key.set("n", "<S-C-N>", "<cmd>bn<CR>")
+key.set({ "n", "x", "o" }, "<leader>s", "<Plug>(leap-forward)")
+key.set({ "n", "x", "o" }, "<leader>S", "<Plug>(leap-backward)")
+
+key.set("n", "<S-C-h>", "<cmd>BufferPrevious<CR>")
+key.set("n", "<S-C-l>", "<cmd>BufferNext<CR>")
+key.set("n", "<M-c>", "<Cmd>BufferClose<CR>", opts)
+key.set("n", "<M-<>", "<Cmd>BufferMovePrevious<CR>", opts)
+key.set("n", "<M->>", "<Cmd>BufferMoveNext<CR>", opts)
+key.set("n", "<M-1>", "<cmd>BufferClosAllButCurrent<cr>", opts)
 
 ---
 require("leap.user").set_repeat_keys("<S-Enter>", "<S-Backspace>")
@@ -23,6 +26,7 @@ require("flash").setup({
 	},
 })
 
+require("persistenceConfig")
 require("nvim-tree").setup()
 require("telescopeConfig")
 require("lang")

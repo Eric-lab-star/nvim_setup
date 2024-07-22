@@ -139,4 +139,3 @@ end, { desc = "CopilotChat - Prompt actions" })
 vim.keymap.set("n", "<leader>tm", ":Telescope toggleterm_manager<cr>", {})
 
 vim.keymap.set("n", "<leader>nn", "<cmd>Telescope luasnip<cr>", {})
-vim.keymap.set("n", "ml", "<cmd>Telescope bookmarks list<cr>", {})
