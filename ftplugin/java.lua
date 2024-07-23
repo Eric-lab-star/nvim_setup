@@ -15,6 +15,7 @@ local config = {
 		"java.base/java.util=ALL-UNNAMED",
 		"--add-opens",
 		"java.base/java.lang=ALL-UNNAMED",
+		"-javaagent:/Users/kyungsubkim/.config/nvim/Lombok.jar",
 
 		"-jar",
 		"/Users/kyungsubkim/jdtls/plugins/org.eclipse.equinox.launcher_1.6.700.v20231214-2017.jar",
@@ -27,8 +28,26 @@ local config = {
 	},
 	settings = {
 		java = {
-			ls = {
-				vmargs = "-Xmx1G",
+			configurations = {
+				updateBuildConfiguration = "interactive",
+			},
+			import = {
+				gradle = {
+					enabled = true,
+					annotationProcessing = {
+						enabled = true,
+					},
+				},
+			},
+			jdt = {
+				ls = {
+					lombokSupport = {
+						enabled = true,
+					},
+				},
+			},
+			saveActions = {
+				organizeImports = true,
 			},
 		},
 	},

@@ -10,7 +10,10 @@
   set cpo&vim
 
   AddTabularPattern! asterisk /*/l1
-
+  AddTabularPipeline tabs / \{2,}/
+    \ map(a:lines, "substitute(v:val, ' \{2,}', ' ', 'g')")
+    \   | tabular#TabularizeStrings(a:lines, ' ', 'l0')
   " Restore the saved value of 'cpo'
   let &cpo = s:save_cpo
   unlet s:save_cpo
+
