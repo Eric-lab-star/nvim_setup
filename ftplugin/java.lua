@@ -1,6 +1,8 @@
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local workspace_dir = "/Users/kyungsubkim/nvimJava/" .. project_name
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local jdtls = require('jdtls')
+
 local config = {
 	cmd = {
 		"java", -- or '/path/to/java17_or_newer/bin/java'
@@ -31,6 +33,9 @@ local config = {
 			configurations = {
 				updateBuildConfiguration = "interactive",
 			},
+			signatureHelp = {
+				enabled = false,
+			},
 			import = {
 				gradle = {
 					enabled = true,
@@ -49,6 +54,12 @@ local config = {
 			saveActions = {
 				organizeImports = true,
 			},
+
+			inlayhints = {
+				parameterNames = {
+					enabled = "all",
+				}
+			}
 		},
 	},
 

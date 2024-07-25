@@ -9,17 +9,17 @@
 :set nowb
 :set noswapfile
 :set relativenumber
-:set autoindent
 :set smarttab
-:set softtabstop=4
-:set shiftwidth=4
-:set noexpandtab
 :set mouse=a
 :set clipboard=unnamed
 :set encoding=UTF-8
 :set inccommand=split
 :set shada=<1000,'50,f0,n~/.config/nvim/shada
 
+set autoindent
+set noexpandtab
+set tabstop=4
+set shiftwidth=4
 
 
 filetype plugin on
@@ -54,11 +54,15 @@ Plug 'ziontee113/icon-picker.nvim'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'folke/noice.nvim'
 Plug 'nvim-lua/plenary.nvim'
+"" cmp ""
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
+Plug 'hrsh7th/cmp-nvim-lua'
+
 Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'} " Replace <CurrentMajor> by the latest released major (first number of latest release)
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
@@ -73,13 +77,11 @@ Plug 'https://github.com/folke/tokyonight.nvim'
 Plug 'tokorom/vim-swift-format'
 Plug 'https://github.com/tpope/vim-repeat' " repeat plugin command
 Plug 'mhartington/formatter.nvim' "integrated formatter for many languages
-" Plug 'ThePrimeagen/harpoon',{'branch': 'harpoon2'}
 Plug 'https://github.com/mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'theHamsta/nvim-dap-virtual-text'
 Plug 'https://github.com/nvim-telescope/telescope-dap.nvim'
 Plug 'edolphin-ydf/goimpl.nvim',
-Plug 'folke/neodev.nvim'
 Plug 'stevearc/oil.nvim'
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 Plug 'kkharji/sqlite.lua'
@@ -88,7 +90,6 @@ Plug 'ryanmsnyder/toggleterm-manager.nvim',
 Plug 'nvim-neotest/nvim-nio'
 Plug 'folke/todo-comments.nvim'
 Plug 'chentoast/marks.nvim'
-" Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'zbirenbaum/copilot.lua'
 Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }
 Plug 'github/copilot.vim'
@@ -110,6 +111,14 @@ Plug 'wakatime/vim-wakatime'
 Plug 'https://github.com/godlygeek/tabular'
 """Barbar"""
 Plug 'romgrk/barbar.nvim'
+"" lua ls"""
+Plug 'folke/lazydev.nvim'
+
+"""Startup"""
+Plug 'startup-nvim/startup.nvim'
+
+"""Project"""
+Plug 'ahmedkhalf/project.nvim'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

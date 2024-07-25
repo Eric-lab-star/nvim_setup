@@ -119,17 +119,21 @@ require("telescope").load_extension("noice")
 require("telescope").load_extension("dap")
 -- goimpl
 require("telescope").load_extension("goimpl")
+-- project
+require('telescope').load_extension('projects')
+local keys = vim.keymap
+keys.set("n", "<leader>ff", builtin.find_files, {})
+keys.set("n", "<leader>fb", builtin.buffers, {})
+keys.set("n", "<leader>fo", builtin.oldfiles, {})
+keys.set("n", "<leader>fg", builtin.live_grep, {})
+keys.set("n", "<leader>fs", builtin.current_buffer_fuzzy_find, {}) -- search in current buffer
+keys.set("n", "<leader>ma", builtin.marks, {}) -- list marks
+keys.set("n", "<leader>tr", builtin.treesitter, {})
+keys.set("n", "<leader>oc", builtin.lsp_outgoing_calls, { noremap = true })
+keys.set("n", "<leader>ic", builtin.lsp_incoming_calls, { noremap = true })
+keys.set("n", "<leader>wd", builtin.diagnostics, { noremap = true })
+keys.set("n", "<leader>fp", "<cmd>Telescope projects<CR>", { noremap = true })
 
-vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
-vim.keymap.set("n", "<leader>fo", builtin.oldfiles, {})
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-vim.keymap.set("n", "<leader>fs", builtin.current_buffer_fuzzy_find, {}) -- search in current buffer
-vim.keymap.set("n", "<leader>ma", builtin.marks, {}) -- list marks
-vim.keymap.set("n", "<leader>tr", builtin.treesitter, {})
-vim.keymap.set("n", "<leader>oc", builtin.lsp_outgoing_calls, { noremap = true })
-vim.keymap.set("n", "<leader>ic", builtin.lsp_incoming_calls, { noremap = true })
-vim.keymap.set("n", "<leader>wd", builtin.diagnostics, { noremap = true })
 
 vim.keymap.set({ "v", "n" }, "<leader>ccp", function()
 	local actions = require("CopilotChat.actions")

@@ -26,7 +26,12 @@ require("flash").setup({
 		},
 	},
 })
+require("lazydev").setup({
+	library = {
+	"~/local/share/nvim/plugged/"
+	}
 
+})
 require("persistenceConfig")
 require("nvim-tree").setup()
 require("telescopeConfig")
@@ -69,11 +74,18 @@ require("im_select").setup({
 	keep_quiet_on_no_binary = false,
 	async_switch_im = true,
 })
--- require("helpers")
+
 require("cmpConfig")
 require("markConfig")
 require("luaSnipConfig")
 require("dapConfig")
+
+require("startup").setup({
+	theme = "custom"
+})
+
+require("project_nvim").setup({})
+
 -- require("nvim-dap-virtual-text").setup()
 
 --- for godot

@@ -1,15 +1,15 @@
 local key = vim.keymap
-key.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true })
-key.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true })
-key.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true })
-key.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { noremap = true })
-key.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true })
-key.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true })
-key.set("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { noremap = true })
-key.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true })
+local opt = {noremap = true}
+key.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opt)
+key.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
+key.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
+key.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
+key.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
+key.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
+key.set("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opt)
+key.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opt)
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-require("neodev").setup({})
 
 local lspconfig = require("lspconfig")
 
@@ -22,6 +22,13 @@ lspconfig.gdscript.setup({
 
 lspconfig.rust_analyzer.setup({
 	capabilities = capabilities,
+	settings = {
+		["rust-analyzer"] = {
+			diagnostics = {
+				enable = true,
+			},
+		},
+	},
 })
 
 lspconfig.tsserver.setup({
@@ -45,16 +52,26 @@ lspconfig.lua_ls.setup({
 	capabilities = capabilities,
 	settings = {
 		Lua = {
+			completion = {
+				autoRequire = true,
+				callSnippet = "Both",
+			},
 			runtime = {
 				version = "LuaJIT",
 			},
 			diagnostics = {
+				disable = { "lowercase-global" },
 				globals = {
 					"vim",
 					"require",
 				},
 			},
-			workspace = {},
+			workspace = {
+				library = {
+					"/usr/local/share/nvim/runtime/lua",
+				},
+				checkThirdParty = true,
+			},
 			telemetry = {
 				enable = false,
 			},
