@@ -113,8 +113,6 @@ telescope.setup({
 
 -- snippets
 require("telescope").load_extension("luasnip")
--- noice
-require("telescope").load_extension("noice")
 -- dap
 require("telescope").load_extension("dap")
 -- goimpl

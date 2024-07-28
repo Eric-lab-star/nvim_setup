@@ -1,21 +1,4 @@
-local key = vim.keymap
-local opts = { noremap = true, silent = true }
-key.set("t", "<Leader><ESC>", "<C-\\><C-n>", { noremap = true })
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-vim.opt.termguicolors = true
 
-key.set({ "n", "x", "o" }, "<leader>s", "<Plug>(leap-forward)")
-key.set({ "n", "x", "o" }, "<leader>S", "<Plug>(leap-backward)")
-
-key.set("n", "<C-h>", "<cmd>BufferPrevious<CR>")
-key.set("n", "<C-l>", "<cmd>BufferNext<CR>")
-key.set("n", "<C-c>", "<Cmd>BufferClose<CR>", opts)
-key.set("n", "<M-<>", "<Cmd>BufferMovePrevious<CR>", opts)
-key.set("n", "<M->>", "<Cmd>BufferMoveNext<CR>", opts)
-key.set("n", "<M-1>", "<cmd>BufferClosAllButCurrent<cr>", opts)
-
----
 require("leap.user").set_repeat_keys("<S-Enter>", "<S-Backspace>")
 
 require("flash").setup({
@@ -26,33 +9,26 @@ require("flash").setup({
 		},
 	},
 })
+
 require("lazydev").setup({
 	library = {
-	"~/local/share/nvim/plugged/"
+		"~/local/share/nvim/plugged/"
 	}
 
 })
-require("persistenceConfig")
 require("nvim-tree").setup()
 require("telescopeConfig")
 require("lang")
+--
 require("treesitterConfig")
 require("icon-picker").setup({ disable_legacy_commands = true })
 require("flutter-tools").setup({})
 require("todo-comments").setup()
-require("noiceConfig")
-require("notify").setup({
-	max_width = 100,
-	render = "wrapped-compact",
-	timeout = 1000,
-	stages = "fade_in_slide_out",
-})
+
 require("lualineConfig")
 require("nvim-surround").setup()
 require("tokyonightConfig")
 require("formatterConfig")
--- require("harpoonconfig")
--- require("dapui").setup()
 require("oilConfig")
 require("toggleTermconfig")
 require("neoclipConfig")
@@ -79,17 +55,27 @@ require("cmpConfig")
 require("markConfig")
 require("luaSnipConfig")
 require("dapConfig")
-
-require("startup").setup({
-	theme = "custom"
-})
-
 require("project_nvim").setup({})
-
--- require("nvim-dap-virtual-text").setup()
+require("persistenceConfig")
 
 --- for godot
 local pipepath = vim.fn.stdpath("cache") .. "/server.pipe"
 if not vim.loop.fs_stat(pipepath) then
 	vim.fn.serverstart(pipepath)
 end
+
+local key = vim.keymap
+local opts = { noremap = true, silent = true }
+key.set("t", "<Leader><ESC>", "<C-\\><C-n>", { noremap = true })
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
+
+key.set({ "n", "x", "o" }, "<leader>s", "<Plug>(leap-forward)")
+key.set({ "n", "x", "o" }, "<leader>S", "<Plug>(leap-backward)")
+key.set("n", "<C-h>", "<cmd>BufferPrevious<CR>")
+key.set("n", "<C-l>", "<cmd>BufferNext<CR>")
+key.set("n", "<C-c>", "<Cmd>BufferClose<CR>", opts)
+key.set("n", "<M-,>", "<Cmd>BufferMovePrevious<CR>", opts)
+key.set("n", "<M-.>", "<Cmd>BufferMoveNext<CR>", opts)
+key.set("n", "<M-1>", "<cmd>BufferClosAllButCurrent<cr>", opts)

@@ -31,6 +31,7 @@ require("toggleterm").setup({
 			return vim.o.columns * 0.4
 		end
 	end,
+	autochdir = true,
 	open_mapping = [[<c-t>]],
 	winbar = {
 		enabled = true,

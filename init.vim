@@ -52,7 +52,6 @@ Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'stevearc/dressing.nvim'
 Plug 'ziontee113/icon-picker.nvim'
 Plug 'MunifTanjim/nui.nvim'
-Plug 'folke/noice.nvim'
 Plug 'nvim-lua/plenary.nvim'
 "" cmp ""
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -67,7 +66,6 @@ Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'} " Replac
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 Plug 'akinsho/flutter-tools.nvim'
-Plug 'rcarriga/nvim-notify'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'https://github.com/tpope/vim-dadbod'
 Plug 'https://github.com/kristijanhusak/vim-dadbod-ui'
@@ -114,18 +112,11 @@ Plug 'romgrk/barbar.nvim'
 "" lua ls"""
 Plug 'folke/lazydev.nvim'
 
-"""Startup"""
-Plug 'startup-nvim/startup.nvim'
-
 """Project"""
 Plug 'ahmedkhalf/project.nvim'
 call plug#end()
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-"""key bindings""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-:lua require('init')
+ :lua require('init')
 
