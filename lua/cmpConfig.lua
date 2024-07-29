@@ -1,8 +1,18 @@
 local cmp = require("cmp")
+local lspkind = require("lspkind")
 
 cmp.setup({
+	formatting = {
+		format = lspkind.cmp_format({
+			mode = "symbol_text",
+			maxwidth = 60,
+			ellipsis_char = "...",
+			show_labelDetails = true,
+			preset = 'codicons'
+		}),
+	},
+
 	snippet = {
-		-- REQUIRED - you must specify a snippet engine
 		expand = function(args)
 			require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
 		end,
@@ -19,10 +29,9 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" }, -- For luasnip users.
 		{ name = "nvim_lsp_signature_help" },
-		{ name = "path"},
-		{ name = "nvim_lua"},
-	},
-	{
+		{ name = "path" },
+		{ name = "nvim_lua" },
+	}, {
 		{ name = "buffer" },
 	}),
 })
@@ -45,5 +54,13 @@ cmp.setup.cmdline(":", {
 	}),
 	matching = { disallow_symbol_nonprefix_matching = false },
 })
+
+cmp.event:on("menu_opened", function()
+	vim.b.copilot_suggestion_hidden = true
+end)
+
+cmp.event:on("menu_closed", function()
+	vim.b.copilot_suggestion_hidden = false
+end)
 
 -- Set up lspconfig.

@@ -1,4 +1,3 @@
-
 require("leap.user").set_repeat_keys("<S-Enter>", "<S-Backspace>")
 
 require("flash").setup({
@@ -16,15 +15,14 @@ require("lazydev").setup({
 	}
 
 })
+
 require("nvim-tree").setup()
 require("telescopeConfig")
 require("lang")
 --
 require("treesitterConfig")
 require("icon-picker").setup({ disable_legacy_commands = true })
-require("flutter-tools").setup({})
 require("todo-comments").setup()
-
 require("lualineConfig")
 require("nvim-surround").setup()
 require("tokyonightConfig")
@@ -36,8 +34,9 @@ require("gitsignsConfig")
 require("Comment").setup({
 	pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
 })
-require("copilot").setup({})
+--- copilot
 require("copilotChatConfig")
+require("copilotConfig")
 
 require("ts_context_commentstring").setup()
 vim.g.skip_ts_context_commentstring_module = true
@@ -55,7 +54,6 @@ require("cmpConfig")
 require("markConfig")
 require("luaSnipConfig")
 require("dapConfig")
-require("project_nvim").setup({})
 require("persistenceConfig")
 
 --- for godot

@@ -34,14 +34,22 @@ autocmd FileType sql setlocal commentstring=--%s
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Plugins
 call plug#begin()
+
+"" dev utils"""
+Plug 'stevearc/dressing.nvim'
+Plug 'ziontee113/icon-picker.nvim'
+Plug 'MunifTanjim/nui.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'ray-x/guihua.lua'
+Plug 'nvim-tree/nvim-web-devicons'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'rafamadriz/friendly-snippets'
-Plug 'dart-lang/dart-vim-plugin'
+
+
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'https://github.com/kana/vim-operator-user'
 Plug 'neovim/nvim-lspconfig'
-Plug 'ray-x/guihua.lua'
-Plug 'nvim-tree/nvim-web-devicons'
+
+"" treesitter """
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
@@ -49,10 +57,9 @@ Plug 'numToStr/Comment.nvim'
 Plug 'https://github.com/lifepillar/pgsql.vim' " PSQL Pluging needs :SQLSetType pgsql.vim
 Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
-Plug 'stevearc/dressing.nvim'
-Plug 'ziontee113/icon-picker.nvim'
-Plug 'MunifTanjim/nui.nvim'
-Plug 'nvim-lua/plenary.nvim'
+
+
+
 "" cmp ""
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -61,24 +68,28 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 Plug 'hrsh7th/cmp-nvim-lua'
-
+Plug 'rafamadriz/friendly-snippets'
 Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'} " Replace <CurrentMajor> by the latest released major (first number of latest release)
 Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'onsails/lspkind.nvim'
+
+""" editor
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
-Plug 'akinsho/flutter-tools.nvim'
+Plug 'https://github.com/nvim-telescope/telescope-dap.nvim'
+Plug 'benfowler/telescope-luasnip.nvim'
+
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'https://github.com/tpope/vim-dadbod'
 Plug 'https://github.com/kristijanhusak/vim-dadbod-ui'
 Plug 'https://github.com/kylechui/nvim-surround'
 Plug 'm00qek/baleia.nvim', { 'tag': 'v1.3.0' }
 Plug 'https://github.com/folke/tokyonight.nvim'
-Plug 'tokorom/vim-swift-format'
+
 Plug 'https://github.com/tpope/vim-repeat' " repeat plugin command
 Plug 'mhartington/formatter.nvim' "integrated formatter for many languages
 Plug 'https://github.com/mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'theHamsta/nvim-dap-virtual-text'
-Plug 'https://github.com/nvim-telescope/telescope-dap.nvim'
 Plug 'edolphin-ydf/goimpl.nvim',
 Plug 'stevearc/oil.nvim'
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
@@ -88,14 +99,15 @@ Plug 'ryanmsnyder/toggleterm-manager.nvim',
 Plug 'nvim-neotest/nvim-nio'
 Plug 'folke/todo-comments.nvim'
 Plug 'chentoast/marks.nvim'
+
+"" copilot """
 Plug 'zbirenbaum/copilot.lua'
-Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }
-Plug 'github/copilot.vim'
+Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'tag': '2.11.1' }
+" Plug 'github/copilot.vim'
 Plug 'keaising/im-select.nvim'
 Plug 'kevinhwang91/promise-async'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'mfussenegger/nvim-jdtls'
-Plug 'benfowler/telescope-luasnip.nvim'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'https://github.com/ggandor/leap.nvim'
 Plug 'folke/flash.nvim'
@@ -112,11 +124,7 @@ Plug 'romgrk/barbar.nvim'
 "" lua ls"""
 Plug 'folke/lazydev.nvim'
 
-"""Project"""
-Plug 'ahmedkhalf/project.nvim'
 call plug#end()
 
-
-
- :lua require('init')
+:lua require('init')
 

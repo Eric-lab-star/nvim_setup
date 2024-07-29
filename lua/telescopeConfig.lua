@@ -118,7 +118,7 @@ require("telescope").load_extension("dap")
 -- goimpl
 require("telescope").load_extension("goimpl")
 -- project
-require('telescope').load_extension('projects')
+
 local keys = vim.keymap
 keys.set("n", "<leader>ff", builtin.find_files, {})
 keys.set("n", "<leader>fb", builtin.buffers, {})
@@ -130,7 +130,6 @@ keys.set("n", "<leader>tr", builtin.treesitter, {})
 keys.set("n", "<leader>oc", builtin.lsp_outgoing_calls, { noremap = true })
 keys.set("n", "<leader>ic", builtin.lsp_incoming_calls, { noremap = true })
 keys.set("n", "<leader>wd", builtin.diagnostics, { noremap = true })
-keys.set("n", "<leader>fp", "<cmd>Telescope projects<CR>", { noremap = true })
 
 
 vim.keymap.set({ "v", "n" }, "<leader>ccp", function()
