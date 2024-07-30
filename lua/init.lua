@@ -9,12 +9,6 @@ require("flash").setup({
 	},
 })
 
-require("lazydev").setup({
-	library = {
-		"~/local/share/nvim/plugged/"
-	}
-
-})
 
 require("nvim-tree").setup()
 require("telescopeConfig")
@@ -49,12 +43,14 @@ require("im_select").setup({
 	keep_quiet_on_no_binary = false,
 	async_switch_im = true,
 })
-
+-- cmp 
 require("cmpConfig")
 require("markConfig")
 require("luaSnipConfig")
 require("dapConfig")
 require("persistenceConfig")
+
+--- lua ls
 
 --- for godot
 local pipepath = vim.fn.stdpath("cache") .. "/server.pipe"

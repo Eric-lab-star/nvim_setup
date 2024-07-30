@@ -1,4 +1,5 @@
 require("oil").setup({
+	delete_to_trash = true,
 	default_file_explorer = true,
 	-- Id is automatically added at the beginning, and name at the end
 	-- See :help oil-columns
@@ -38,9 +39,9 @@ require("oil").setup({
 
 local oil = require("oil")
 
-local function toggleFloat()
+local function open()
 	local cwd = oil.get_current_dir()
-	oil.toggle_float(cwd)
+	oil.open(cwd)
 end
 
-vim.keymap.set("n", "<C-\\>", toggleFloat, {})
+vim.keymap.set("n", "<C-\\>", open, {})

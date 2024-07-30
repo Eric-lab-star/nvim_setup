@@ -47,37 +47,29 @@ lspconfig.gradle_ls.setup({
 		"gradle-language-server",
 	},
 })
+lspconfig.lua_ls.setup {
+  on_init = function(client)
+    local path = client.workspace_folders[1].name
+    if vim.uv.fs_stat(path..'/.luarc.json') or vim.uv.fs_stat(path..'/.luarc.jsonc') then
+      return
+    end
 
-lspconfig.lua_ls.setup({
-	capabilities = capabilities,
-	settings = {
-		Lua = {
-			completion = {
-				autoRequire = true,
-				callSnippet = "Both",
-			},
-			runtime = {
-				version = "LuaJIT",
-			},
-			diagnostics = {
-				disable = { "lowercase-global" },
-				globals = {
-					"vim",
-					"require",
-				},
-			},
-			workspace = {
-				library = {
-					"/usr/local/share/nvim/runtime/lua",
-				},
-				checkThirdParty = true,
-			},
-			telemetry = {
-				enable = false,
-			},
-		},
-	},
-})
+    client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+      runtime = {
+        version = 'LuaJIT'
+      },
+      workspace = {
+        checkThirdParty = false,
+        library = {
+          vim.env.VIMRUNTIME,
+        }
+      }
+    })
+  end,
+  settings = {
+    Lua = {}
+  }
+}
 
 vim.g.dart_format_on_save = true
 vim.g.dart_html_in_string = true

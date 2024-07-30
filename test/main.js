@@ -18,3 +18,12 @@ function greeting() {
 	console.log('greeting');
 }
 
+
+const names = ["a", "b", "c"];
+names.map((name) => {
+	console.log(name);
+});
+const stu = new Student("st", 13);
+
+
+

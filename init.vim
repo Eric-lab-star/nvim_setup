@@ -2,7 +2,7 @@
 :set ignorecase
 :set termguicolors            " 24 bit color
 :set incsearch
-:set completeopt-=preview " For No Previews
+":set completeopt-=preview " For No Previews
 :set nocompatible
 :set number
 :set nobackup
@@ -72,6 +72,7 @@ Plug 'rafamadriz/friendly-snippets'
 Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'} " Replace <CurrentMajor> by the latest released major (first number of latest release)
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'onsails/lspkind.nvim'
+Plug 'zbirenbaum/copilot-cmp'
 
 """ editor
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
@@ -112,7 +113,8 @@ Plug 'nvim-tree/nvim-tree.lua'
 Plug 'https://github.com/ggandor/leap.nvim'
 Plug 'folke/flash.nvim'
 Plug 'https://github.com/folke/persistence.nvim'
-
+""""" luvit meta
+Plug 'Bilal2453/luvit-meta'
 """""Markdown plugins"""""""""
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' } " Markdown Preview in Browser
 """wakatime
