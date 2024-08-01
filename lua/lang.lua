@@ -1,5 +1,5 @@
 local key = vim.keymap
-local opt = {noremap = true}
+local opt = { noremap = true }
 key.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opt)
 key.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
 key.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
@@ -13,9 +13,6 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lspconfig = require("lspconfig")
 
-lspconfig.kotlin_language_server.setup({
-	capabilities = capabilities,
-})
 lspconfig.gdscript.setup({
 	capabilities = capabilities,
 })
@@ -47,29 +44,29 @@ lspconfig.gradle_ls.setup({
 		"gradle-language-server",
 	},
 })
-lspconfig.lua_ls.setup {
-  on_init = function(client)
-    local path = client.workspace_folders[1].name
-    if vim.uv.fs_stat(path..'/.luarc.json') or vim.uv.fs_stat(path..'/.luarc.jsonc') then
-      return
-    end
+lspconfig.lua_ls.setup({
+	on_init = function(client)
+		local path = client.workspace_folders[1].name
+		if vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc") then
+			return
+		end
 
-    client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-      runtime = {
-        version = 'LuaJIT'
-      },
-      workspace = {
-        checkThirdParty = false,
-        library = {
-          vim.env.VIMRUNTIME,
-        }
-      }
-    })
-  end,
-  settings = {
-    Lua = {}
-  }
-}
+		client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+			runtime = {
+				version = "LuaJIT",
+			},
+			workspace = {
+				checkThirdParty = false,
+				library = {
+					vim.env.VIMRUNTIME,
+				},
+			},
+		})
+	end,
+	settings = {
+		Lua = {},
+	},
+})
 
 vim.g.dart_format_on_save = true
 vim.g.dart_html_in_string = true

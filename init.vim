@@ -18,8 +18,8 @@
 
 set autoindent
 set noexpandtab
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 
 
 filetype plugin on

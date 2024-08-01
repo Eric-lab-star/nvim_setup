@@ -1,4 +1,4 @@
--- Utilities for creating configurations
+--Utilities for creating configurations
 -- local augroup = vim.api.nvim_create_augroup
 -- local autocmd = vim.api.nvim_create_autocmd
 -- augroup("__formatter__", { clear = true })
@@ -35,22 +35,6 @@ require("formatter").setup({
 					exe = "cmake-format",
 					args = { "-" },
 					stdin = true,
-				}
-			end,
-		},
-
-		kotlin = {
-			require("formatter.filetypes.kotlin").ktlint,
-		},
-
-		groovy = {
-			function()
-				return {
-					exe = "npm-groovy-lint",
-					args = {
-						"--format",
-						"*.gradle",
-					},
 				}
 			end,
 		},
