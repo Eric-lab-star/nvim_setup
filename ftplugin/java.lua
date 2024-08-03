@@ -63,17 +63,22 @@ local config = {
 		},
 	},
 
-	init_options = {
-		bundles = {
-			vim.fn.glob(
-				"/Users/kyungsubkim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar",
-				1
-			),
-		},
-	},
-
 	root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew" }),
 	capabilities = capabilities,
 }
 
-require("jdtls").start_or_attach(config)
+
+local bundles = {
+	vim.fn.glob( "/Users/kyungsubkim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", 1),
+}
+
+-- vim.list_extend(bundles, vim.split(vim.fn.glob("/Users/kyungsubkim/Programming/js/vscode-java-test/server/*.jar", 1), "\n"))
+
+
+config['init_options'] = {
+  bundles = bundles;
+}
+
+jdtls.start_or_attach(config)
+
+

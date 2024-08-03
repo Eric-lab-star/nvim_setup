@@ -18,8 +18,8 @@
 
 set autoindent
 set noexpandtab
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 
 
 filetype plugin on
@@ -110,7 +110,7 @@ Plug 'kevinhwang91/promise-async'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'mfussenegger/nvim-jdtls'
 Plug 'nvim-tree/nvim-tree.lua'
-Plug 'https://github.com/ggandor/leap.nvim'
+" Plug 'https://github.com/ggandor/leap.nvim'
 Plug 'folke/flash.nvim'
 Plug 'https://github.com/folke/persistence.nvim'
 """"" luvit meta

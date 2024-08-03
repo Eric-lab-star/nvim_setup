@@ -1,9 +1,8 @@
-require("leap.user").set_repeat_keys("<S-Enter>", "<S-Backspace>")
+require("helpers")
 
 require("flash").setup({
 	modes = {
 		char = {
-			enabled = true,
 			jump_labels = true,
 		},
 	},
@@ -54,7 +53,7 @@ require("persistenceConfig")
 
 --- for godot
 local pipepath = vim.fn.stdpath("cache") .. "/server.pipe"
-if not vim.loop.fs_stat(pipepath) then
+if not vim.uv.fs_stat(pipepath) then
 	vim.fn.serverstart(pipepath)
 end
 
@@ -65,11 +64,18 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
-key.set({ "n", "x", "o" }, "<leader>s", "<Plug>(leap-forward)")
-key.set({ "n", "x", "o" }, "<leader>S", "<Plug>(leap-backward)")
+--buffer
 key.set("n", "<C-h>", "<cmd>BufferPrevious<CR>")
 key.set("n", "<C-l>", "<cmd>BufferNext<CR>")
 key.set("n", "<C-c>", "<Cmd>BufferClose<CR>", opts)
 key.set("n", "<M-,>", "<Cmd>BufferMovePrevious<CR>", opts)
 key.set("n", "<M-.>", "<Cmd>BufferMoveNext<CR>", opts)
 key.set("n", "<M-1>", "<cmd>BufferClosAllButCurrent<cr>", opts)
+-- flash
+
+local f = require("flash")
+local function jump ()
+	f.jump()
+end
+
+key.set({"n", "x", "o"}, "s", jump,  opts)
