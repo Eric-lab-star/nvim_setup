@@ -13,6 +13,10 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lspconfig = require("lspconfig")
 
+-- lspconfig.kotlin_language_server.setup({
+-- 	capabilities = capabilities,
+-- })
+
 lspconfig.gdscript.setup({
 	capabilities = capabilities,
 })

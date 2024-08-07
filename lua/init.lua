@@ -70,7 +70,7 @@ key.set("n", "<C-l>", "<cmd>BufferNext<CR>")
 key.set("n", "<C-c>", "<Cmd>BufferClose<CR>", opts)
 key.set("n", "<M-,>", "<Cmd>BufferMovePrevious<CR>", opts)
 key.set("n", "<M-.>", "<Cmd>BufferMoveNext<CR>", opts)
-key.set("n", "<M-1>", "<cmd>BufferClosAllButCurrent<cr>", opts)
+key.set("n", "<M-1>", "<cmd>BufferCloseAllButCurrent<cr>", opts)
 -- flash
 
 local f = require("flash")
