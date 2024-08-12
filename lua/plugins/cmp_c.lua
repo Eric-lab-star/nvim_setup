@@ -11,9 +11,14 @@ return {
 		"rafamadriz/friendly-snippets",
 		"onsails/lspkind.nvim",
 		"zbirenbaum/copilot-cmp",
+		"L3MON4D3/LuaSnip",
+		"saadparwaiz1/cmp_luasnip",
+		"roobert/tailwindcss-colorizer-cmp.nvim",
 	},
-
 	config = function()
+		require("tailwindcss-colorizer-cmp").setup({
+			  color_square_width = 2,
+			})
 		local cmp = require("cmp")
 		local lspkind = require("lspkind")
 		local copilot_cmp = require("copilot_cmp").setup()

@@ -21,6 +21,10 @@ local lspconfig = require("lspconfig")
 -- 	capabilities = capabilities,
 -- })
 
+lspconfig.tailwindcss.setup({
+	capabilities = capabilities,
+})
+
 lspconfig.gdscript.setup({
 	capabilities = capabilities,
 })
