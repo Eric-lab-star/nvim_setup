@@ -1,11 +1,12 @@
 return {
 	"mhartington/formatter.nvim",
-
 	cmd = {
 		"Format",
 		"FormatWrite",
 	},
-
+	keys = {
+		{"W", "<cmd>FormatWrite<cr>"}
+	},
 	config = function()
 		require("formatter").setup({
 			-- Enable or disable logging
@@ -62,7 +63,7 @@ return {
 				html = { require("formatter.filetypes.html").prettier },
 				lua = { require("formatter.filetypes.lua").stylua },
 				javascript = { require("formatter.filetypes.javascript").denofmt },
-				-- markdown = { require("formatter.filetypes.markdown").prettier },
+				markdown = { require("formatter.filetypes.markdown").denofmt},
 				cpp = { require("formatter.filetypes.cpp").clangformat },
 				java = { require("formatter.filetypes.java").google_java_format },
 				typescript = { require("formatter.filetypes.typescript").denofmt },

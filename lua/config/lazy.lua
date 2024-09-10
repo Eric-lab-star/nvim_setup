@@ -38,8 +38,8 @@ vim.opt.encoding="UTF-8"
 vim.opt.inccommand="split"
 vim.opt.swapfile = false
 vim.opt.autoindent=true
-vim.opt.tabstop=4
-vim.opt.shiftwidth=4
+vim.opt.tabstop=2
+vim.opt.shiftwidth=2
 
 
 

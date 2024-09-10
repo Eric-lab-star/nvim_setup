@@ -10,7 +10,7 @@ return {
 		"hrsh7th/cmp-nvim-lua",
 		"rafamadriz/friendly-snippets",
 		"onsails/lspkind.nvim",
-		"zbirenbaum/copilot-cmp",
+		-- "zbirenbaum/copilot-cmp",
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"roobert/tailwindcss-colorizer-cmp.nvim",
@@ -21,7 +21,7 @@ return {
 			})
 		local cmp = require("cmp")
 		local lspkind = require("lspkind")
-		local copilot_cmp = require("copilot_cmp").setup()
+		-- local copilot_cmp = require("copilot_cmp").setup()
 
 		vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 		cmp.setup({
@@ -46,7 +46,7 @@ return {
 			sorting = {
 				priority_weight = 2,
 				comparators = {
-					require("copilot_cmp.comparators").prioritize,
+					-- require("copilot_cmp.comparators").prioritize,
 
 					-- Below is the default comparitor list and order for nvim-cmp
 					cmp.config.compare.offset,
@@ -65,13 +65,13 @@ return {
 				["<C-e>"] = cmp.mapping.abort(),
 				["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
 				["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
-				["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+				["<TAB>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 				["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "s", "i" }),
 			},
 			sources = cmp.config.sources({
-				{ name = "copilot" },
-				{ name = "nvim_lsp" },
+				-- { name = "copilot" },
 				{ name = "luasnip" }, -- For luasnip users.
+				{ name = "nvim_lsp" },
 				{ name = "nvim_lsp_signature_help" },
 				{ name = "path" },
 				{ name = "nvim_lua" },
@@ -100,6 +100,7 @@ return {
 			matching = { disallow_symbol_nonprefix_matching = false },
 		})
 
+		--- hide copilot suggestion when menu is opened
 		cmp.event:on("menu_opened", function()
 			vim.b.copilot_suggestion_hidden = true
 		end)

@@ -1,7 +1,11 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	tag = "0.1.8",
-	dependencies = { "nvim-lua/plenary.nvim", "benfowler/telescope-luasnip.nvim" },
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"benfowler/telescope-luasnip.nvim",
+		"princejoogie/dir-telescope.nvim",
+	},
 	config = function()
 		local builtin = require("telescope.builtin")
 		local telescope = require("telescope")
@@ -110,6 +114,7 @@ return {
 		})
 
 		require("telescope").load_extension("luasnip")
+		require("telescope").load_extension("dir")
 
 		local keys = vim.keymap
 		keys.set("n", "<leader>ff", builtin.find_files, {})
@@ -120,5 +125,7 @@ return {
 		keys.set("n", "<leader>ic", builtin.lsp_incoming_calls, { noremap = true })
 		keys.set("n", "<leader>wd", builtin.diagnostics, { noremap = true })
 		keys.set("n", "<leader>nn", "<cmd>Telescope luasnip<cr>")
+		keys.set("n", "<leader>pd", "<cmd>Telescope dir live_grep<CR>", { noremap = true, silent = true })
+		keys.set("n", "<leader>fd","<cmd>Telescope dir find_files<CR>", { noremap = true, silent = true })
 	end,
 }
