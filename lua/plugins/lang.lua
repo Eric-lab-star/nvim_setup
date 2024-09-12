@@ -19,6 +19,18 @@ return {
 		-- lspconfig.kotlin_language_server.setup({
 		-- 	capabilities = capabilities,
 		-- })
+		lspconfig.cmake.setup({})
+		lspconfig.ccls.setup({
+			init_options = {
+				compilationDatabaseDirectory = "build",
+				index = {
+					threads = 0,
+				},
+				clang = {
+					excludeArgs = { "-frounding-math" },
+				},
+			},
+		})
 
 		lspconfig.tailwindcss.setup({
 			capabilities = capabilities,

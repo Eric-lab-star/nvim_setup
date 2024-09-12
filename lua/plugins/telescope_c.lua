@@ -29,9 +29,10 @@ return {
 		table.insert(vimgrep_arguments, "!**/*.png")
 		table.insert(vimgrep_arguments, "--glob")
 		table.insert(vimgrep_arguments, "!**/.gradle/**")
+		table.insert(vimgrep_arguments, "--glob")
+		table.insert(vimgrep_arguments, "!**/.ccls-cache/**")
 
 		telescope.setup({
-			extensions = {},
 			defaults = {
 				-- `hidden = true` is not supported in text grep commands.
 				vimgrep_arguments = vimgrep_arguments,
@@ -74,6 +75,8 @@ return {
 						"!**/*.png",
 						"--glob",
 						"!**/.gradle/**",
+						"--glob",
+						"!**/.ccls-cache/**",
 					},
 				},
 				oldfiles = {},
@@ -107,6 +110,8 @@ return {
 							"!**/*.png",
 							"--glob",
 							"!**/.gradle/**",
+							"--glob",
+							"!**/.ccls-cache/**",
 						},
 					},
 				},
@@ -126,6 +131,6 @@ return {
 		keys.set("n", "<leader>wd", builtin.diagnostics, { noremap = true })
 		keys.set("n", "<leader>nn", "<cmd>Telescope luasnip<cr>")
 		keys.set("n", "<leader>pd", "<cmd>Telescope dir live_grep<CR>", { noremap = true, silent = true })
-		keys.set("n", "<leader>fd","<cmd>Telescope dir find_files<CR>", { noremap = true, silent = true })
+		keys.set("n", "<leader>fd", "<cmd>Telescope dir find_files<CR>", { noremap = true, silent = true })
 	end,
 }

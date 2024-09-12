@@ -5,9 +5,10 @@ return {
 		"FormatWrite",
 	},
 	keys = {
-		{"W", "<cmd>FormatWrite<cr>"}
+		{ "W", "<cmd>FormatWrite<cr>" },
 	},
 	config = function()
+		local util = require("formatter.util")
 		require("formatter").setup({
 			-- Enable or disable logging
 			logging = true,
@@ -63,8 +64,22 @@ return {
 				html = { require("formatter.filetypes.html").prettier },
 				lua = { require("formatter.filetypes.lua").stylua },
 				javascript = { require("formatter.filetypes.javascript").denofmt },
-				markdown = { require("formatter.filetypes.markdown").denofmt},
-				cpp = { require("formatter.filetypes.cpp").clangformat },
+				markdown = { require("formatter.filetypes.markdown").denofmt },
+				cpp = {
+					function()
+						return {
+							exe = "clang-format",
+							args = {
+								"--assume-filename",
+								util.escape_path(util.get_current_buffer_file_name()),
+								"--style",
+								"Google",
+							},
+							stdin = true,
+							try_node_modules = true,
+						}
+					end,
+				},
 				java = { require("formatter.filetypes.java").google_java_format },
 				typescript = { require("formatter.filetypes.typescript").denofmt },
 				typescriptreact = { require("formatter.filetypes.typescriptreact").denofmt },

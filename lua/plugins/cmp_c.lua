@@ -10,23 +10,19 @@ return {
 		"hrsh7th/cmp-nvim-lua",
 		"rafamadriz/friendly-snippets",
 		"onsails/lspkind.nvim",
-		-- "zbirenbaum/copilot-cmp",
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
-		"roobert/tailwindcss-colorizer-cmp.nvim",
+		"luckasRanarison/tailwind-tools.nvim",
 	},
 	config = function()
-		require("tailwindcss-colorizer-cmp").setup({
-			  color_square_width = 2,
-			})
 		local cmp = require("cmp")
 		local lspkind = require("lspkind")
-		-- local copilot_cmp = require("copilot_cmp").setup()
 
 		vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 		cmp.setup({
 			formatting = {
 				format = lspkind.cmp_format({
+					before = require("tailwind-tools.cmp").lspkind_format,
 					mode = "symbol_text",
 					maxwidth = 60,
 					ellipsis_char = "...",
