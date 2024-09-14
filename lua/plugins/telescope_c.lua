@@ -31,6 +31,8 @@ return {
 		table.insert(vimgrep_arguments, "!**/.gradle/**")
 		table.insert(vimgrep_arguments, "--glob")
 		table.insert(vimgrep_arguments, "!**/.ccls-cache/**")
+		table.insert(vimgrep_arguments, "--glob")
+		table.insert(vimgrep_arguments, "!**/target/**")
 
 		telescope.setup({
 			defaults = {
@@ -77,6 +79,8 @@ return {
 						"!**/.gradle/**",
 						"--glob",
 						"!**/.ccls-cache/**",
+						"--glob",
+						"!**/target/**",
 					},
 				},
 				oldfiles = {},
@@ -112,6 +116,8 @@ return {
 							"!**/.gradle/**",
 							"--glob",
 							"!**/.ccls-cache/**",
+							"--glob",
+							"!**/target/**",
 						},
 					},
 				},
