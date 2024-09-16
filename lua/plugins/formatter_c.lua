@@ -80,6 +80,13 @@ return {
 						}
 					end,
 				},
+				swift = {
+					function()
+						return {
+							exe = "swift-format",
+						}
+					end,
+				},
 				java = { require("formatter.filetypes.java").google_java_format },
 				typescript = { require("formatter.filetypes.typescript").denofmt },
 				typescriptreact = { require("formatter.filetypes.typescriptreact").denofmt },
