@@ -51,9 +51,6 @@ return {
 			},
 		})
 
-		lspconfig.ts_ls.setup({
-			capabilities = capabilities,
-		})
 
 		lspconfig.sqlls.setup({
 			capabilities = capabilities,

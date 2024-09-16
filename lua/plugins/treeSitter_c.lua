@@ -31,6 +31,10 @@ return {
 					enable = true,
 					lookahead = true,
 					keymaps = {
+						["is"] = "@assignment.inner",
+						["as"] = "@assignment.outer",
+						["ls"] = "@assignment.lhs",
+						["rs"] = "@assignment.rhs",
 						["af"] = "@function.outer",
 						["if"] = "@function.inner",
 						["ac"] = "@class.outer",

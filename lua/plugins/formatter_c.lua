@@ -55,7 +55,7 @@ return {
 					function()
 						return {
 							exe = "clang-format",
-							args = { "--style=Google", "--assume-filename=.json" },
+							args = { "--style=Google", "--assume-filename", ".json" },
 							stdin = true,
 						}
 					end,
