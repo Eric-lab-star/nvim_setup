@@ -15,7 +15,7 @@ return {
 			},
 		},
 		keys = {
-			{ "<leader>cct", "<cmd>CopilotChatOpen<cr>" },
+			{ "<leader>cct", "<cmd>CopilotChatToggle<cr>" },
 			{
 				"<leader>ccp",
 				function()
