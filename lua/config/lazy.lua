@@ -40,6 +40,8 @@ vim.opt.autoindent=true
 vim.opt.tabstop=2
 vim.opt.shiftwidth=2
 
+vim.opt.pumheight = 10
+
 
 
 -- Setup lazy.nvim

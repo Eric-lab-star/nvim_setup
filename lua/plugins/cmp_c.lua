@@ -13,24 +13,26 @@ return {
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"luckasRanarison/tailwind-tools.nvim",
+		"zbirenbaum/copilot-cmp",
 	},
 	config = function()
+		require("copilot_cmp").setup()
 		local cmp = require("cmp")
 		local lspkind = require("lspkind")
+		lspkind.init({
+			symbol_map = {
+				Copilot = "",
+			},
+		})
+		vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#5abffa" })
 
-		vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 		cmp.setup({
 			formatting = {
 				format = lspkind.cmp_format({
-					before = require("tailwind-tools.cmp").lspkind_format,
-					mode = "symbol_text",
-					maxwidth = 60,
+					maxwidth = 10,
 					ellipsis_char = "...",
-					show_labelDetails = true,
-					preset = "codicons",
-					symbol_map = {
-						Copilot = "",
-					},
+					mode = "symbol",
+					before = require("tailwind-tools.cmp").lspkind_format,
 				}),
 			},
 			snippet = {
@@ -42,6 +44,7 @@ return {
 			sorting = {
 				priority_weight = 2,
 				comparators = {
+					require("copilot_cmp.comparators").prioritize,
 					cmp.config.compare.offset,
 					cmp.config.compare.exact,
 					cmp.config.compare.score,
@@ -55,17 +58,20 @@ return {
 			},
 			mapping = {
 				["<C-e>"] = cmp.mapping.abort(),
-				["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
-				["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
-				["<TAB>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-				["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "s", "i" }),
+				["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
+				["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
+				["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i" }),
+				["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i" }),
+				["<CR>"] = cmp.mapping.confirm({ select = true }),
+				["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 			},
 			sources = cmp.config.sources({
-				{ name = "luasnip" },
-				{ name = "nvim_lsp" },
-				{ name = "nvim_lsp_signature_help" },
-				{ name = "path" },
-				{ name = "nvim_lua" },
+				{ name = "copilot", group_index = 2 },
+				{ name = "luasnip", group_index = 2 },
+				{ name = "nvim_lsp", group_index = 2 },
+				{ name = "nvim_lsp_signature_help", group_index = 2 },
+				{ name = "path", group_index = 2 },
+				{ name = "nvim_lua", group_index = 2 },
 				{ name = "lazydev", group_index = 0 },
 			}, {
 				{ name = "buffer" },
@@ -92,12 +98,12 @@ return {
 		})
 
 		--- hide copilot suggestion when menu is opened
-		cmp.event:on("menu_opened", function()
-			vim.b.copilot_suggestion_hidden = true
-		end)
-
-		cmp.event:on("menu_closed", function()
-			vim.b.copilot_suggestion_hidden = false
-		end)
+		-- cmp.event:on("menu_opened", function()
+		-- 	vim.b.copilot_suggestion_hidden = true
+		-- end)
+		--
+		-- cmp.event:on("menu_closed", function()
+		-- 	vim.b.copilot_suggestion_hidden = false
+		-- end)
 	end,
 }
