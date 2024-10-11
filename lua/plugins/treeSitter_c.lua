@@ -21,10 +21,9 @@ return {
 			},
 			sync_install = true,
 			auto_install = true,
-			-- highlight = {
-			-- 	enable = true,
-			-- 	disable = { "c", "rust" },
-			-- },
+			highlight = {
+				enable = true,
+			},
 
 			textobjects = {
 				select = {

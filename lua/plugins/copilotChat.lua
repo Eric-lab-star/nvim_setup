@@ -17,7 +17,7 @@ return {
 				prompts = {
 					MyCustomPrompt = {
 						-- prompt = "Explain how it works.",
-						mapping = "<leader>cct",
+						mapping = "<leader>ct",
 						description = "My custom prompt description",
 						selection = require("CopilotChat.select").visual,
 					},
@@ -31,10 +31,11 @@ return {
 			"CopilotChatExplain",
 			"CopilotChatMyCustomPrompt",
 		},
+
 		keys = {
-			{ "<leader>cct", "<cmd>CopilotChatMyCustomPrompt<cr>" },
+			{ "<leader>ct", "<cmd>CopilotChatMyCustomPrompt<cr>" },
 			{
-				"<leader>ccp",
+				"<leader>cp",
 				function()
 					local actions = require("CopilotChat.actions")
 					require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
