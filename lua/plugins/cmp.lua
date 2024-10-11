@@ -27,6 +27,7 @@ return {
 		vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#5abffa" })
 
 		cmp.setup({
+			preselect = cmp.PreselectMode.None,
 			formatting = {
 				format = lspkind.cmp_format({
 					maxwidth = 15,
@@ -62,7 +63,7 @@ return {
 				["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
 				["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i" }),
 				["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i" }),
-				["<CR>"] = cmp.mapping.confirm({ select = true }),
+				["<CR>"] = cmp.mapping.confirm({ select = false}),
 				["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 			},
 			sources = cmp.config.sources({
