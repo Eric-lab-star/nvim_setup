@@ -43,18 +43,6 @@ return {
 
 		lspconfig.tailwindcss.setup({
 			capabilities = capabilities,
-			filetypes = {
-				"html",
-				"css",
-				"less",
-				"postcss",
-				"sass",
-				"scss",
-				"javascript",
-				"javascriptreact",
-				"typescript",
-				"typescriptreact",
-			},
 		})
 
 		lspconfig.gdscript.setup({
