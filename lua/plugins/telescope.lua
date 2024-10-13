@@ -129,8 +129,6 @@ return {
 		keys.set("n", "<leader>ff", builtin.find_files, {})
 		keys.set("n", "<leader>fg", builtin.live_grep, {})
 		keys.set("n", "<leader>fs", builtin.current_buffer_fuzzy_find, {}) -- search in current buffer
-
-		keys.set("n", "<leader>fb", builtin.buffers, {}) -- list marks
 		keys.set("n", "<leader>ma", builtin.marks, {}) -- list marks
 		keys.set("n", "<leader>oc", builtin.lsp_outgoing_calls, { noremap = true })
 		keys.set("n", "<leader>ic", builtin.lsp_incoming_calls, { noremap = true })
