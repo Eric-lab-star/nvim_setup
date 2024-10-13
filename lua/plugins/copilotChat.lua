@@ -9,7 +9,7 @@ return {
 		},
 		config = function()
 			require("CopilotChat").setup({
-				debug = true, -- Enable debugging
+				debug = false, -- Enable debugging
 				window = {
 					layout = "replace", -- 'vertical', 'horizontal', 'float', 'replace'
 					width = 0.3, -- fractional width of parent, or absolute width in columns when > 1
