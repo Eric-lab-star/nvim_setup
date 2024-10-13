@@ -25,7 +25,7 @@ vim.g.maplocalleader = "\\"
 vim.opt.ignorecase=true
 vim.opt.termguicolors=true
 vim.opt.incsearch=true
-vim.lsp.set_log_level("debug")
+vim.lsp.set_log_level("warn")
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
