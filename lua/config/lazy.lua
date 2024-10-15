@@ -42,6 +42,8 @@ vim.opt.tabstop=2
 vim.opt.shiftwidth=2
 
 vim.opt.pumheight = 10
+vim.keymap.set("n", "k", "gk", {})
+vim.keymap.set("n", "j", "gj", {})
 
 
 
