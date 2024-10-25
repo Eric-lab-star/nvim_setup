@@ -15,6 +15,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.opt.cmdheight = 0
+
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
@@ -24,6 +26,8 @@ vim.g.maplocalleader = "\\"
 
 vim.opt.ignorecase=true
 vim.opt.termguicolors=true
+vim.opt.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve:ver25,r-cr-o:hor20"
+
 vim.opt.incsearch=true
 vim.lsp.set_log_level("warn")
 
