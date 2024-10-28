@@ -23,10 +23,7 @@ return {
 						}
 					},
 					lualine_c = {
-						{
-							require("noice").api.status.message.get,
-							cond = require("noice").api.status.message.has,
-						},
+						{ },
 					},
 
 					lualine_x = {},

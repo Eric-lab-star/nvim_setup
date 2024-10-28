@@ -4,6 +4,7 @@ return {
 		colorcolumn = "78",
 		disabled_filetypes = {
 			"help",
+			"markdown",
 		}
 	}
 }
