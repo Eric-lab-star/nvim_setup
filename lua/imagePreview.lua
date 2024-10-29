@@ -23,7 +23,10 @@ end
 
 function M.PreviewImage(absolutePath)
 	if M.IsImage(absolutePath) then
-		local cmd = string.format("!wezterm cli split-pane -- zsh -c 'wezterm imgcat %s; read'", absolutePath)
+		local cmd = string.format(
+			"!wezterm cli split-pane -- zsh -c 'wezterm imgcat %s; read'",
+			absolutePath
+		)
 		vim.api.nvim_create_user_command("Image", cmd, {})
 		vim.api.nvim_cmd({
 			cmd = "Image",

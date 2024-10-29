@@ -7,6 +7,7 @@ return {
 			need = 1,
 			branch = true, -- use git branch to save session
 		})
-		vim.keymap.set("n", "<leader>qs", function() require("persistence").load() end)
+		vim.keymap.set("n", "<leader>ss", "<cmd>lua require('persistence').load()<CR>", { noremap = true, silent = true })
+			
 	end,
 }

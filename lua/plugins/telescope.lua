@@ -133,6 +133,7 @@ return {
 		keys.set("n", "<leader>oc", builtin.lsp_outgoing_calls, { noremap = true })
 		keys.set("n", "<leader>ic", builtin.lsp_incoming_calls, { noremap = true })
 		keys.set("n", "<leader>wd", builtin.diagnostics, { noremap = true })
+		keys.set("n", "<leader>lg", builtin.live_grep,{noremap = true})
 		keys.set("n", "<leader>nn", "<cmd>Telescope luasnip<cr>")
 	end,
 }

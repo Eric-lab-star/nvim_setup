@@ -48,7 +48,12 @@ vim.opt.shiftwidth=2
 vim.opt.pumheight = 10
 vim.keymap.set("n", "k", "gk", {})
 vim.keymap.set("n", "j", "gj", {})
-
+vim.keymap.set(
+	't',
+	'<Esc>',
+	[[<C-\><C-n>]],
+	{ noremap = true, silent = true }
+)
 
 
 -- Setup lazy.nvim
@@ -62,4 +67,8 @@ require("lazy").setup({
   install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
+	change_detection = {
+		notify = false,
+		enabled = true,
+	}
 })
