@@ -51,13 +51,23 @@ return {
 				{i(1, "\"n\""), i(2, "keys"), i(3,"cmd")})
 			),
 		})
-		
 
-		local current_time = os.date("%H:%M")
+		local function getTime()
+			return os.date("%H:%M:%S")
+		end
+
+
 		ls.add_snippets("markdown", {
-			s("qtime",{
-				t({"> [!TIME] ".. current_time,">", "> "}),
-			})
+			s(
+				"qtime",
+				fmt(
+					[[
+					> [!TIME] {}
+					> 
+					]],
+					{f(getTime)}
+				)
+			)
 		})
 
 		require("luasnip.loaders.from_vscode").lazy_load()
