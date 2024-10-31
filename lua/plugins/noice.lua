@@ -35,6 +35,14 @@ return {
 					filter = {
 						event = "msg_show",
 						kind = "",
+						find = ".*",
+					},
+					opts = { skip = true },
+				},
+				{
+					filter = {
+						event = "msg_show",
+						kind = "",
 						find = "written",
 					},
 					opts = { skip = true },

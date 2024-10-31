@@ -11,6 +11,9 @@ return {
 					rendered = '󰔟   ',
 					highlight = 'RenderMarkdownWarn',
 				}
+			},
+			sign = {
+				enabled = false,
 			}
 		},
 }

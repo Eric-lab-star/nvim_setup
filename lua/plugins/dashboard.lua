@@ -19,7 +19,6 @@ local header = {
 "",
 }
 
-local current_time = os.date("%Y-%m-%d %H:%M:%S")
 
 return {
   'nvimdev/dashboard-nvim',

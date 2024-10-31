@@ -67,7 +67,12 @@ return {
 					]],
 					{f(getTime)}
 				)
+			),
+			s(
+				"info",
+				t("> [!INFO]")
 			)
+
 		})
 
 		require("luasnip.loaders.from_vscode").lazy_load()
