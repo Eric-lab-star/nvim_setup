@@ -16,10 +16,11 @@ return {
 			priority = 5000,
 		}
 	},
+
 	keys = {
 		{
 			"s",
-			mode = { "n", "x", "o" },
+			mode = { "n","x", "o" },
 			function()
 				require("flash").jump()
 			end,

@@ -18,7 +18,7 @@ return {
 			},
 			sections = {
 				lualine_a = { 'mode' },
-				lualine_b = { 'branch', 'diff',
+				lualine_b = { 'branch',
 					{
 						'diagnostics',
 						sources = { "nvim_diagnostic" },
@@ -31,7 +31,10 @@ return {
 					}
 				},
 				lualine_c = {
-					{ },
+					{
+						'filename',
+						path = 1,
+					}
 				},
 
 				lualine_x = {},

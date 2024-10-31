@@ -16,8 +16,6 @@ return {
 			vim.keymap.set("n","<c-h>","<cmd>BufferPrevious<cr>")
  			vim.keymap.set("n","<C-l>", "<cmd>BufferNext<CR>")
  			vim.keymap.set("n","<C-c>", "<Cmd>BufferClose<CR>")
- 			vim.keymap.set("n","<M-h>", "<Cmd>BufferMovePrevious<CR>")
- 			vim.keymap.set("n","<M-l>", "<Cmd>BufferMoveNext<CR>")
  			vim.keymap.set("n","<M-1>", "<cmd>BufferCloseAllButCurrent<cr>")
 		end,
 	},
