@@ -63,7 +63,6 @@ return {
 				fmt(
 					[[
 					> [!TIME] {}
-					> 
 					]],
 					{f(getTime)}
 				)
