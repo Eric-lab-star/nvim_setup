@@ -70,6 +70,10 @@ return {
 			s(
 				"info",
 				t("> [!INFO]")
+			),
+			s(
+				"star",
+				t("⭐")
 			)
 
 		})
